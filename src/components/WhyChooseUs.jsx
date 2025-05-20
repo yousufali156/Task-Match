@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhyChooseUs = () => {
     return (
-        <div className="container mx-auto bg-gray-50 py-12 px-4 md:px-12 lg:px-20">
+        <div className="container mx-auto py-12 px-4 md:px-12 lg:px-20">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
 
                 {/* Why Choose Us */}
