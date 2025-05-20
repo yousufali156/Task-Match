@@ -7,11 +7,35 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
+import MainLayout from './Layouts/MainLayout.jsx';
+import Home from './components/Home.jsx';
+import AddTask from './components/Pages/AddTask.jsx';
+import BrowseTask from './components/Pages/BrowseTask.jsx';
+import MyPostTask from './components/Pages/MyPostTask.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
+    Component:MainLayout,
+    children:[
+      {
+        index:true,
+        Component:Home
+      },
+      {
+        path:'addTask',
+        Component:AddTask
+      },
+      {
+        path:'browseTask',
+        Component:BrowseTask
+      },
+      {
+        path:'myPostTask',
+        Component:MyPostTask
+      },
+      
+    ]
   },
 ]);
 

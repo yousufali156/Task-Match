@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Build a Portfolio Website",
+    "category": "Web Development",
+    "bid": "$50 - $500"
+  },
+  {
+    "id": 2,
+    "title": "Create a Landing Page",
+    "deadline": "May 3, 2024",
+    "bid": "$500 - $500"
+  },
+  {
+    "id": 3,
+    "title": "Fix Website Bugs",
+    "deadline": "May 2, 2024",
+    "budget": "$150"
+  },
+  {
+    "id": 4,
+    "title": "Design a Company Logo",
+    "deadline": "May 3, 2024",
+    "budget": "$150"
+  },
+  {
+    "id": 5,
+    "title": "Write Blog Articles",
+    "deadline": "May 2, 2024",
+    "budget": "$150"
+  },
+  {
+    "id": 6,
+    "title": "Social Media Marketing",
+    "deadline": "May 3, 2024",
+    "budget": "$150"
+  }
+]
