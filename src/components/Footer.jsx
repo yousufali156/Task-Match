@@ -7,8 +7,6 @@ import {
     FaPinterest,
     FaXTwitter,
 } from "react-icons/fa6";
-import { FaGlobe } from "react-icons/fa";
-import { IoMdCloseCircle } from "react-icons/io";
 
 const Footer = () => {
     return (
@@ -16,26 +14,41 @@ const Footer = () => {
             {/* Main Section */}
             <div className="max-w-7xl mx-auto px-4 pt-10 pb-6">
 
-                {/* Company description */}
-                <div className="mb-10 max-w-xl ">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">Grapes Market</h2>
-                    <p>
-                        "A freelance marketplace for small tasks where users can post jobs, bid, and connect based on skills, budget, and deadlines."
-                    </p>
+                {/* Contact & Terms Section */}
+                <div className="mb-5 flex flex-col md:flex-row justify-between gap-8">
+                    
+
+                    {/* Company description */}
+                    <div className="mb-10 max-w-xl ">
+                        <h2 className="text-2xl font-bold text-gray-800 mb-2">Grapes Market</h2>
+                        <p>
+                            "A freelance marketplace for small tasks where users can post jobs, bid, and connect based on skills, budget, and deadlines."
+                        </p>
+                    </div>
+
+                    {/* Terms and Conditions */}
+                    <div className="text-sm text-gray-600 max-w-sm">
+                        <h3 className="font-semibold text-gray-900 mb-2">Terms & Conditions</h3>
+                        <p>
+                            By using Grapes Market, you agree to our service terms including payment
+                            responsibilities, code of conduct, privacy rights, and dispute resolution.
+                            Always review project details and terms before making agreements.
+                        </p>
+                    </div>
                 </div>
 
+
                 {/* Footer links */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-sm">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center border-t py-4 px-4">
                     {/* Categories */}
                     <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Categories</h3>
                         <ul className="space-y-1">
+                            <li>Web Development & Tech</li>
                             <li>Graphics & Design</li>
                             <li>Digital Marketing</li>
                             <li>Writing & Translation</li>
-                            <li>Video & Animation</li>
-                            <li>Music & Audio</li>
-                            <li>Programming & Tech</li>
+                            <li>Video & Animation</li>                                                        
                         </ul>
                     </div>
 
@@ -44,10 +57,8 @@ const Footer = () => {
                         <h3 className="font-semibold text-gray-900 mb-2">For Clients</h3>
                         <ul className="space-y-1">
                             <li>How It Works</li>
-                            <li>Customer Success Stories</li>
+                            <li>Success Stories</li>
                             <li>Trust & Safety</li>
-                            <li>Quality Guide</li>
-                            <li>Online Learning</li>
                             <li>Help Center</li>
                         </ul>
                     </div>
@@ -57,26 +68,13 @@ const Footer = () => {
                         <h3 className="font-semibold text-gray-900 mb-2">For Freelancers</h3>
                         <ul className="space-y-1">
                             <li>Become a Freelancer</li>
-                            <li>Join an Agency</li>
                             <li>Freelancer Tools</li>
                             <li>Community Hub</li>
-                            <li>Forum</li>
                             <li>Events</li>
                         </ul>
                     </div>
 
-                    {/* Business Solutions */}
-                    <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Business Solutions</h3>
-                        <ul className="space-y-1">
-                            <li>Project Management</li>
-                            <li>Expert Sourcing</li>
-                            <li>Content Marketing</li>
-                            <li>Creative Talent</li>
-                            <li>Automation Tools</li>
-                            <li>Custom Requests</li>
-                        </ul>
-                    </div>
+
 
                     {/* Company */}
                     <div>
@@ -84,22 +82,31 @@ const Footer = () => {
                         <ul className="space-y-1">
                             <li>About Us</li>
                             <li>Careers</li>
-                            <li>Terms of Service</li>
-                            <li>Privacy Policy</li>
-                            <li>Contact</li>
-                            <li>Partnerships</li>
+                            <li>Terms & Conditions</li>
+                            <li>Privacy Policy</li>                           
+                            <li>Partners</li>
                         </ul>
                     </div>
 
 
-
+                    {/* Contact Info */}
+                    <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Contact Us</h3>
+                        <ul className="space-y-1">
+                            <li>📧 support@grapesmarket.com</li>
+                            <li>📞 +1 (234) 567-8901</li>
+                            <li>📍 123 Tasker Lane, Hustle City, CA 90210</li>
+                        </ul>
+                    </div>
                 </div>
+
+
             </div>
 
             {/* Bottom Bar */}
             <div className="border-t py-4 px-4">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-                    {/* Left: Logo */}
+                    {/* Left: Logo and copyright */}
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-lg">
                             Grapes<span className="text-green-500">.</span>
@@ -107,6 +114,23 @@ const Footer = () => {
                         <span>© Grapes Market Ltd. {new Date().getFullYear()}</span>
                     </div>
 
+                    {/* Newsletter Sign-up */}
+                    <div className="w-full md:w-1/2">
+                        <h3 className="font-semibold text-center text-gray-900 mb-1">Subscribe to Our Newsletter</h3>
+                        <form className="flex flex-col sm:flex-row gap-2">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400"
+                            />
+                            <button
+                                type="submit"
+                                className="px-4 py-2 bg-sky-500 text-white font-semibold rounded-md hover:bg-sky-600"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
 
                     {/* Right: Social Icons */}
                     <div className="flex items-center gap-4 text-xl">
@@ -116,7 +140,6 @@ const Footer = () => {
                         <FaFacebook />
                         <FaPinterest />
                         <FaXTwitter />
-                        
                     </div>
                 </div>
             </div>
