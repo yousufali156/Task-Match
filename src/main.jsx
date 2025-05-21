@@ -10,11 +10,18 @@ import {
 import MainLayout from './Layouts/MainLayout.jsx';
 import Home from './components/Home.jsx';
 import AddTask from './components/Pages/AddTask.jsx';
-import BrowseTask from './components/Pages/BrowseTask.jsx';
-import MyPostTask from './components/Pages/MyPostTask.jsx';
+import BrowseTasks from './components/Pages/BrowseTasks.jsx';
+import MyPostedTask from './components/Pages/MyPostedTask.jsx';
 import Error404 from './components/Error404.jsx';
 import Login from './components/Login/Login.jsx';
 import Signup from './components/SignUP/Signup.jsx';
+import ContextProvider from './Provider/ContextProvider.jsx';
+import { ToastContainer } from 'react-toastify';
+import ResetPassword from './components/ResetPassword/ResetPassword.jsx';
+import TaskDetails from './components/Pages/TaskDetails.jsx';
+import MyPostedTasks from './components/Pages/MyPostedTask.jsx';
+
+
 
 const router = createBrowserRouter([
   {
@@ -27,16 +34,20 @@ const router = createBrowserRouter([
         Component:Home
       },
       {
-        path:'addTask',
+        path:'add-task',
         Component:AddTask
       },
       {
-        path:'browseTask',
-        Component:BrowseTask
+        path:'browse-tasks',
+        Component:BrowseTasks
       },
       {
-        path:'myPostTask',
-        Component:MyPostTask
+        path:'task-details/:id',
+        Component:TaskDetails
+      },
+      {
+        path:'my-posted-tasks',
+        Component:MyPostedTasks
       },
       {
         path:'login',
@@ -46,6 +57,10 @@ const router = createBrowserRouter([
         path:'signup',
         Component:Signup
       },
+      {
+        path:'reset-password',
+        Component:ResetPassword
+      },
       
     ]
   },
@@ -53,7 +68,10 @@ const router = createBrowserRouter([
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-  <RouterProvider router={router} />
+   <StrictMode>
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
+    <ToastContainer></ToastContainer>
   </StrictMode>,
 )

@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "1",
+    "title": "Fix CSS on landing page",
+    "category": "Web Design",
+    "description": "Header is overlapping the banner.",
+    "deadline": "2025-06-01",
+    "budget": 50
+  },
+  {
+    "_id": "2",
+    "title": "Translate blog post",
+    "category": "Translation",
+    "description": "Translate a technical blog post to Spanish.",
+    "deadline": "2025-06-05",
+    "budget": 40
+  },
+  {
+    "_id": "3",
+    "title": "Create logo",
+    "category": "Graphic Design",
+    "description": "Design a modern logo for a fintech startup.",
+    "deadline": "2025-06-10",
+    "budget": 100
+  },
+  {
+    "_id": "4",
+    "title": "Write SEO article",
+    "category": "Content Writing",
+    "description": "Need a 1000-word blog on AI trends.",
+    "deadline": "2025-06-02",
+    "budget": 70
+  },
+  {
+    "_id": "5",
+    "title": "Develop landing page",
+    "category": "Web Development",
+    "description": "Build a responsive React landing page.",
+    "deadline": "2025-06-07",
+    "budget": 150
+  },
+  {
+    "_id": "6",
+    "title": "Data entry task",
+    "category": "Admin Support",
+    "description": "Input 500 records from PDF into Excel.",
+    "deadline": "2025-06-04",
+    "budget": 30
+  },
+  {
+    "_id": "7",
+    "title": "Setup Google Ads",
+    "category": "Marketing",
+    "description": "Create and launch a Google Ads campaign.",
+    "deadline": "2025-06-08",
+    "budget": 120
+  },
+  {
+    "_id": "8",
+    "title": "Design business card",
+    "category": "Graphic Design",
+    "description": "Minimalist business card for a startup.",
+    "deadline": "2025-06-03",
+    "budget": 25
+  },
+  {
+    "_id": "9",
+    "title": "Translate resume",
+    "category": "Translation",
+    "description": "Translate resume from English to French.",
+    "deadline": "2025-06-06",
+    "budget": 35
+  },
+  {
+    "_id": "10",
+    "title": "Fix bug in API",
+    "category": "Web Development",
+    "description": "Resolve 500 error in payment endpoint.",
+    "deadline": "2025-06-09",
+    "budget": 80
+  }
+]
