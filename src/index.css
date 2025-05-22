@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+
+
+
+
+
+
+
+
+.glow-border {
+  position: relative;
+  z-index: 0;
+  border-radius: 1rem; /* Match with Tailwind's rounded-3xl */
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  z-index: -1;
+  background: linear-gradient(
+  45deg,
+  #00ff00,  /* green */
+  #39ff14,  /* neon green */
+  #adff2f,  /* yellow-green */
+  #ffff00,  /* yellow */
+  #ffbf00,  /* amber */
+  #ff8000,  /* orange */
+  #ff4000,  /* orange-red */
+  #ff0000,  /* red */
+  #ff007f,  /* rose */
+  #ff00ff,  /* magenta */
+  #bf00ff,  /* purple */
+  #8a2be2,  /* blue violet */
+  #6a0dad,  /* indigo */
+  #4b0082,  /* deep indigo */
+  #0000ff,  /* blue */
+  #040cfc,  /* vivid blue */
+  #00bfff,  /* deep sky blue */
+  #00ffff,  /* cyan */
+  #ffffff,  /* white */
+  #e0e0e0,  /* soft white */
+  #b103f5   /* electric violet */
+);
+
+  background-size: 400% 400%;
+  animation: glowing-border 6s ease infinite;
+  border-radius: inherit;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes glowing-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

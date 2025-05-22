@@ -26,20 +26,25 @@ function Navbar() {
       })
       .catch((error) => {
         console.log(error);
+        toast.error('Logout Failed');
       });
   };
 
+  const navLinkClass = ({ isActive }) =>
+    isActive ? 'text-blue-600 font-semibold' : '';
+
   return (
     <nav
-      className="bg-white container mx-auto mt-3 px-6 py-4 flex justify-between items-center"
+      className="bg-white sticky top-0 z-50 container mx-auto mt-3 px-6 py-4 flex justify-between items-center shadow-md"
       style={{ boxShadow: getRandomShadowColor() }}
     >
       {/* Logo */}
-      <div className="text-2xl font-bold text-black">
-        <Link to="/">Grapes Market</Link>
+      <div className="text-3xl  font-bold   hover:from-blue-600 hover:to-indigo-700 text-black font-bold py-2 px-8 rounded-lg text-lg hover:shadow-lg  ">
+        <Link to="/">Task Match</Link>
       </div>
+      
 
-      {/* Hamburger - visible on mobile */}
+      {/* Mobile Menu Toggle */}
       <div className="md:hidden">
         <button onClick={toggleMobileMenu} className="focus:outline-none">
           <svg
@@ -47,57 +52,55 @@ function Navbar() {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
 
-      {/* Nav Links - hidden on mobile, visible on md+ */}
+      {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-6 text-sm font-medium text-gray-700 items-center">
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/add-task">Add Task</NavLink></li>
-        <li><NavLink to="/browse-tasks">Browse Tasks</NavLink></li>
-        <li><NavLink to="/my-posted-tasks">My Posted Tasks</NavLink></li>
+        <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
+        <li><NavLink to="/add-task" className={navLinkClass}>Add Task</NavLink></li>
+        <li><NavLink to="/browse-tasks" className={navLinkClass}>Browse Tasks</NavLink></li>
+        <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>
+        <li><NavLink to="/about" className={navLinkClass}>About</NavLink></li>
 
         {user ? (
           <>
             <li>
               <button
                 onClick={handleLogOutUser}
-                className="px-2 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
               >
                 Logout
               </button>
             </li>
-            <li>
+            <li className="relative group">
               <img
-                src="https://i.pravatar.cc/32"
-                alt="profile"
-                className="rounded-full w-8 h-8 object-cover"
+                src={user.photoURL || 'https://i.pravatar.cc/32'}
+                alt="User"
+                className="rounded-full w-8 h-8 object-cover cursor-pointer"
               />
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                {user.displayName || user.email}
+              </div>
             </li>
           </>
         ) : (
           <>
             <li>
               <NavLink
-                to="/signup"
-                className="px-2 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                to="/register"
+                className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
               >
-                SignUp
+                Register
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/login"
-                className="px-2 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
               >
                 Login
               </NavLink>
@@ -108,7 +111,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white border-t border-gray-200 md:hidden z-10">
+        <div className="absolute top-16 left-0 w-full bg-white border-t border-gray-200 md:hidden z-50">
           <ul className="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-gray-700">
             <li><NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink></li>
             <li><NavLink to="/add-task" onClick={toggleMobileMenu}>Add Task</NavLink></li>
@@ -123,35 +126,36 @@ function Navbar() {
                       handleLogOutUser();
                       toggleMobileMenu();
                     }}
-                    className="px-2 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                    className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
                   >
                     Logout
                   </button>
                 </li>
-                <li>
+                <li className="flex items-center space-x-3">
                   <img
-                    src="https://i.pravatar.cc/32"
-                    alt="profile"
+                    src={user.photoURL || 'https://i.pravatar.cc/32'}
+                    alt="User"
                     className="rounded-full w-8 h-8 object-cover"
                   />
+                  <span>{user.displayName || user.email}</span>
                 </li>
               </>
             ) : (
               <>
                 <li>
                   <NavLink
-                    to="/signup"
+                    to="/register"
                     onClick={toggleMobileMenu}
-                    className="px-2 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                    className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
                   >
-                    SignUp
+                    Register
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/login"
                     onClick={toggleMobileMenu}
-                    className="px-2 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                    className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
                   >
                     Login
                   </NavLink>

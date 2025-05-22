@@ -14,13 +14,15 @@ const Footer = () => {
             {/* Main Section */}
             <div className="max-w-7xl mx-auto px-4 pt-10 pb-6">
 
+                <title>Footer || Task Match</title>
+
                 {/* Contact & Terms Section */}
                 <div className="mb-5 flex flex-col md:flex-row justify-between gap-8">
-                    
+
 
                     {/* Company description */}
                     <div className="mb-10 max-w-xl ">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-2">Grapes Market</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-2">Task Match</h2>
                         <p>
                             "A freelance marketplace for small tasks where users can post jobs, bid, and connect based on skills, budget, and deadlines."
                         </p>
@@ -48,7 +50,7 @@ const Footer = () => {
                             <li>Graphics & Design</li>
                             <li>Digital Marketing</li>
                             <li>Writing & Translation</li>
-                            <li>Video & Animation</li>                                                        
+                            <li>Video & Animation</li>
                         </ul>
                     </div>
 
@@ -83,7 +85,7 @@ const Footer = () => {
                             <li>About Us</li>
                             <li>Careers</li>
                             <li>Terms & Conditions</li>
-                            <li>Privacy Policy</li>                           
+                            <li>Privacy Policy</li>
                             <li>Partners</li>
                         </ul>
                     </div>
@@ -93,9 +95,9 @@ const Footer = () => {
                     <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Contact Us</h3>
                         <ul className="space-y-1">
-                            <li>📧 support@grapesmarket.com</li>
-                            <li>📞 +1 (234) 567-8901</li>
-                            <li>📍 123 Tasker Lane, Hustle City, CA 90210</li>
+                            <li>📧 support@taskmatch.com</li>
+                            <li>📞 +880 (015) 567-8901</li>
+                            <li>📍 123 Bogura, Rajshahi, BD 5800</li>
                         </ul>
                     </div>
                 </div>
@@ -109,7 +111,7 @@ const Footer = () => {
                     {/* Left: Logo and copyright */}
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-lg">
-                            Grapes<span className="text-green-500">.</span>
+                            Task Match
                         </span>
                         <span>© Grapes Market Ltd. {new Date().getFullYear()}</span>
                     </div>
@@ -134,13 +136,26 @@ const Footer = () => {
 
                     {/* Right: Social Icons */}
                     <div className="flex items-center gap-4 text-xl">
-                        <FaTiktok />
-                        <FaInstagram />
-                        <FaLinkedin />
-                        <FaFacebook />
-                        <FaPinterest />
-                        <FaXTwitter />
+                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+                            <FaTiktok />
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram />
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <FaLinkedin />
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">
+                            <FaPinterest />
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <FaXTwitter />
+                        </a>
                     </div>
+
                 </div>
             </div>
         </footer>

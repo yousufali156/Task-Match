@@ -24,6 +24,7 @@ const BrowseTasks = () => {
   return (
     <section className="min-h-screen bg-gray-50 py-10 px-4">
       <div className="max-w-6xl mx-auto">
+        <title>Browse Tasks || Task Match</title>
         <h2 className="text-3xl font-bold text-indigo-700 mb-8 text-center">
           Browse Available Tasks
         </h2>

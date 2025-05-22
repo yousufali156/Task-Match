@@ -37,7 +37,7 @@ const ResetPassword = () => {
 
     return (
         <div className="flex items-center justify-center mt-10 mb-10">
-            <title>Reset Password || EasySub</title>
+            <title>Reset Password || Task Match</title>
             <div className="bg-white shadow-2xl rounded-2xl p-6 sm:p-8 md:p-10 w-full max-w-md">
                 <h2 className="text-2xl md:text-3xl font-semibold text-center text-indigo-700 mb-6">
                     Reset Your Password

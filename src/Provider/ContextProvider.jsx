@@ -63,6 +63,7 @@ const ContextProvider = ({ children }) => {
     createUserWithGoogle,
     updateUser,
     resetPassword,
+    setUser,
   };
 
   return (

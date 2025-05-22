@@ -1,4 +1,4 @@
-// src/components/Pages/MyPostedTasks.jsx
+
 import React, { useContext, useEffect, useState } from 'react';
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 import { Link } from 'react-router';
@@ -11,7 +11,7 @@ const MyPostedTasks = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch('/myPostedTask.json')
+      fetch('http://localhost:3000/tasks')
         .then((res) => res.json())
         .then((data) => {
           const filtered = data.filter(task => task.email === user.email);
@@ -30,9 +30,17 @@ const MyPostedTasks = () => {
 
   const handleDelete = (id) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this task?');
+
     if (confirmDelete) {
-      setTasks(prev => prev.filter(task => task._id !== id));
-      toast.success('Task deleted successfully.');
+      fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" })
+        .then(res => res.json())
+        .then(data => {
+          if (data.deletedCount) {
+            setTasks(prev => prev.filter(task => task._id !== id));
+            toast.success('Task deleted successfully.');
+          }
+
+        })
     }
   };
 
@@ -54,6 +62,9 @@ const MyPostedTasks = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
+
+      <title>My Posted Tasks || Task Match</title>
+
       <h2 className="text-2xl font-bold mb-4">📝 My Posted Tasks</h2>
       {tasks.length === 0 ? (
         <p className="text-gray-700">You haven’t posted any tasks yet.</p>
@@ -65,14 +76,18 @@ const MyPostedTasks = () => {
                 <th className="p-2 border">Title</th>
                 <th className="p-2 border">Status</th>
                 <th className="p-2 border">Bids</th>
+                <th className="p-2 border">Count</th>
                 <th className="p-2 border">Actions</th>
               </tr>
             </thead>
             <tbody>
               {tasks.map((task) => (
                 <tr key={task._id} className="text-center">
+                  
                   <td className="p-2 border">{task.title}</td>
+                  <td className="p-2 border">{task.deadline}</td>
                   <td className="p-2 border">{task.status}</td>
+                  
                   <td className="p-2 border">{task.bids?.length || 0}</td>
                   <td className="p-2 border space-x-2">
                     <Link to={`/update-task/${task._id}`}>

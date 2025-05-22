@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 const Header = () => {
     return (
         <div>
+              <title>Navbar || Task Match</title>
             <Navbar></Navbar>
         </div>
     );

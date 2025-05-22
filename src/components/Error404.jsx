@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Error404 = () => {
     return (
         <div className="min-h-screen bg-indigo-50 flex flex-col items-center justify-center text-center px-4">
-            <title>Error 404 || Grapes Market</title>
+            <title>Error 404 || Tech Match</title>
 
             {/* Image wrapped in Link */}
             <Link to="/">

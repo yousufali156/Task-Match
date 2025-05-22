@@ -4,6 +4,7 @@ import tasks from '../../public/featuredTasks.json';
 const FeaturedTask = () => {
     return (
         <div className="container mx-auto bg-white py-12 px-4 md:px-12 lg:px-20">
+            
             <h2 className="text-2xl font-bold text-gray-800 mb-8">Featured Tasks</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
