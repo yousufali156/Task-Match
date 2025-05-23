@@ -30,7 +30,7 @@ function Navbar() {
   };
 
   const navLinkClass = ({ isActive }) =>
-    isActive ? 'text-blue-600 font-semibold' : '';
+    isActive ? 'text-green-600 font-semibold' : '';
 
   return (
     <nav
@@ -53,6 +53,8 @@ function Navbar() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+        <ThemeToggle></ThemeToggle>
+
       </div>
 
       {/* Desktop Menu */}
@@ -110,17 +112,17 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 w-full border-t border-gray-200 md:hidden z-50">
+        
+        <div className="absolute bg-base-300 top-16 left-0 w-full border-t md:hidden z-50">
+                     
+
           <ul className="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
             <li><NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink></li>
             <li><NavLink to="/add-task" onClick={toggleMobileMenu}>Add Task</NavLink></li>
             <li><NavLink to="/browse-tasks" onClick={toggleMobileMenu}>Browse Tasks</NavLink></li>
             <li><NavLink to="/my-posted-tasks" onClick={toggleMobileMenu}>My Posted Tasks</NavLink></li>
             <li><NavLink to="/about" onClick={toggleMobileMenu}>About</NavLink></li>
-            <li className="flex gap-2">
-              <input type="radio" name="theme" className="theme-controller btn btn-sm" value="light" aria-label="Light" />
-              <input type="radio" name="theme" className="theme-controller btn btn-sm" value="dark" aria-label="Dark" />
-            </li>
+            
             {user ? (
               <>
                 <li>
