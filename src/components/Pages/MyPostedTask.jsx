@@ -58,7 +58,7 @@ const MyPostedTasks = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-5xl min-h-screen mx-auto px-4 py-6">
       <title>My Posted Tasks || Task Match</title>
       <h2 className="text-2xl font-bold mb-4">📝 My Posted Tasks</h2>
       {tasks.length === 0 ? (

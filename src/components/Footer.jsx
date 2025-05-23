@@ -6,11 +6,12 @@ import {
     FaFacebook,
     FaPinterest,
     FaXTwitter,
+    FaGithub,
 } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className="bg-sky-50 text-gray-700 text-sm">
+        <footer className="text-sm">
             {/* Main Section */}
             <div className="max-w-7xl mx-auto px-4 pt-10 pb-6">
 
@@ -29,8 +30,8 @@ const Footer = () => {
                     </div>
 
                     {/* Terms and Conditions */}
-                    <div className="text-sm text-gray-600 max-w-sm">
-                        <h3 className="font-semibold text-gray-900 mb-2">Terms & Conditions</h3>
+                    <div className="text-sm max-w-sm">
+                        <h3 className="font-semibold  mb-2">Terms & Conditions</h3>
                         <p>
                             By using Grapes Market, you agree to our service terms including payment
                             responsibilities, code of conduct, privacy rights, and dispute resolution.
@@ -44,7 +45,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center border-t py-4 px-4">
                     {/* Categories */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Categories</h3>
+                        <h3 className="font-semibold mb-2">Categories</h3>
                         <ul className="space-y-1">
                             <li>Web Development & Tech</li>
                             <li>Graphics & Design</li>
@@ -56,7 +57,7 @@ const Footer = () => {
 
                     {/* For Clients */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">For Clients</h3>
+                        <h3 className="font-semibold mb-2">For Clients</h3>
                         <ul className="space-y-1">
                             <li>How It Works</li>
                             <li>Success Stories</li>
@@ -67,7 +68,7 @@ const Footer = () => {
 
                     {/* For Freelancers */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">For Freelancers</h3>
+                        <h3 className="font-semibold mb-2">For Freelancers</h3>
                         <ul className="space-y-1">
                             <li>Become a Freelancer</li>
                             <li>Freelancer Tools</li>
@@ -80,7 +81,7 @@ const Footer = () => {
 
                     {/* Company */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Company</h3>
+                        <h3 className="font-semibold mb-2">Company</h3>
                         <ul className="space-y-1">
                             <li>About Us</li>
                             <li>Careers</li>
@@ -93,11 +94,11 @@ const Footer = () => {
 
                     {/* Contact Info */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Contact Us</h3>
+                        <h3 className="font-semibold mb-2">Contact Us</h3>
                         <ul className="space-y-1">
                             <li>📧 support@taskmatch.com</li>
-                            <li>📞 +880 (015) 567-8901</li>
-                            <li>📍 123 Bogura, Rajshahi, BD 5800</li>
+                            <li>📞 +880 (012) 345-6789</li>
+                            <li>📍  Bogura, Rajshahi, BD 5800</li>
                         </ul>
                     </div>
                 </div>
@@ -118,7 +119,7 @@ const Footer = () => {
 
                     {/* Newsletter Sign-up */}
                     <div className="w-full md:w-1/2">
-                        <h3 className="font-semibold text-center text-gray-900 mb-1">Subscribe to Our Newsletter</h3>
+                        <h3 className="font-semibold text-center mb-1">Subscribe to Our Newsletter</h3>
                         <form className="flex flex-col sm:flex-row gap-2">
                             <input
                                 type="email"
@@ -136,21 +137,22 @@ const Footer = () => {
 
                     {/* Right: Social Icons */}
                     <div className="flex items-center gap-4 text-xl">
-                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-                            <FaTiktok />
+                        <a href="https://github.com/yousufali156" target="_blank" rel="noopener noreferrer">
+                            <FaGithub />
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                            <FaInstagram />
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+
+                        <a href="https://www.linkedin.com/in/yousuf-ali-656744141/" target="_blank" rel="noopener noreferrer">
                             <FaLinkedin />
                         </a>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+
+                        <a href="https://www.facebook.com/yousufali156" target="_blank" rel="noopener noreferrer">
                             <FaFacebook />
                         </a>
-                        <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">
-                            <FaPinterest />
-                        </a>
+
+                        <a href="https://www.instagram.com/mdyousufali001" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram />
+                        </a>                      
+
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                             <FaXTwitter />
                         </a>
