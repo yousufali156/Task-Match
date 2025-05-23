@@ -22,7 +22,7 @@ const Footer = () => {
 
                     {/* Company description */}
                     <div className="mb-10 max-w-xl ">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-2">Task Match</h2>
+                        <h2 className="text-2xl font-bold mb-2">Task Match</h2>
                         <p>
                             "A freelance marketplace for small tasks where users can post jobs, bid, and connect based on skills, budget, and deadlines."
                         </p>

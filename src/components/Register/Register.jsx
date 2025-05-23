@@ -92,9 +92,9 @@ const Register = () => {
   };
 
   return (
-    <div className="mt-5 mb-5 min-h-screen flex items-center justify-center px-4 py-6 bg-gradient-to-r from-blue-600 to-indigo-500">
+    <div className="mt-5 mb-5 min-h-screen flex items-center justify-center px-4 py-6 ">
       <title>Register || Task Match</title>
-      <div className="bg-white rounded-3xl shadow-xl overflow-hidden w-full max-w-5xl p-6 sm:p-10 flex flex-col-reverse lg:flex-row gap-6 lg:gap-10" >
+      <div className="bg-base-300 rounded-3xl shadow-xl overflow-hidden w-full max-w-5xl p-6 sm:p-10 flex flex-col-reverse lg:flex-row gap-6 lg:gap-10" >
         {/* Form Section */}
         <div className="w-full lg:w-1/2">
           <form onSubmit={handleRegister} className="space-y-4">

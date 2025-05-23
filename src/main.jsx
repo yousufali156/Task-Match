@@ -21,6 +21,8 @@ import Register from './components/Register/Register.jsx';
 import About from './components/Pages/About.jsx';
 import Users from './components/Pages/Users.jsx';
 import Update from './components/Update.jsx';
+import BidsDetails from './components/BidsDetails.jsx';
+import PrivateRoute from './Route/PrivateRoute.jsx';
 
 
 
@@ -38,7 +40,10 @@ const router = createBrowserRouter([
       },
       {
         path: 'add-task',
-        Component: AddTask
+        element: <PrivateRoute>
+          <AddTask></AddTask>
+        </PrivateRoute>,
+
       },
       {
         path: 'browse-tasks',
@@ -48,9 +53,12 @@ const router = createBrowserRouter([
         path: 'task-details/:id',
         Component: TaskDetails
       },
+      // task-details/2
       {
         path: 'my-posted-tasks',
-        Component: MyPostedTasks
+        element: <PrivateRoute>
+          <MyPostedTasks></MyPostedTasks>
+        </PrivateRoute>,
       },
       {
         path: 'login',
@@ -67,6 +75,13 @@ const router = createBrowserRouter([
       {
         path: 'about',
         Component: About
+      },
+      {
+        path: '/tasks/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
+        element: <PrivateRoute>
+          <BidsDetails></BidsDetails>
+        </PrivateRoute>,
       },
       {
         path: 'users',

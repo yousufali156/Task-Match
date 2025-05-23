@@ -17,15 +17,15 @@ const About = () => {
   const { user } = useContext(FireBaseAuthContext);
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className=" min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <title>About || Task Match</title>
       <div className="max-w-6xl mx-auto">
 
         <header className="text-center mb-12 md:mb-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4">
+          <h1 className="text-4xl mb-8 sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">
             About {companyName}
           </h1>
-          <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl  max-w-2xl mx-auto">
             A platform where everyday people can find freelancers for small tasks, and freelancers can find jobs tailored to their skills.
           </p>
         </header>
@@ -37,12 +37,12 @@ const About = () => {
         ) : null}
 
         <Fade cascade damping={0.1}>
-          <section className="mb-16 p-6 md:p-8 bg-white rounded-xl shadow-2xl hover:shadow-indigo-300 transition-shadow duration-300">
+          <section className="mb-16 p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-indigo-300 transition-shadow duration-300">
             <div className="flex flex-col md:flex-row items-center">
               <GiTakeMyMoney className="text-5xl md:text-6xl text-blue-600 mb-4 md:mb-0 md:mr-6" />
               <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-3">Our Mission</h2>
-                <p className="text-gray-600 leading-relaxed">
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">Our Mission</h2>
+                <p className=" leading-relaxed">
                   Our mission is to connect people in need of simple freelance tasks with talented individuals looking for flexible job opportunities.
                 </p>
               </div>
@@ -50,25 +50,25 @@ const About = () => {
           </section>
 
           <section className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 text-center mb-8 md:mb-12">Why Choose {companyName}?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 md:mb-12">Why Choose {companyName}?</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className=" p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <FaBolt className="text-4xl text-yellow-500 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">Diverse Categories</h3>
+                <h3 className="text-xl font-semibold mb-2 text-center">Diverse Categories</h3>
                 <p className="text-gray-600 text-sm text-center">
                   From design to tech, marketing to writing – post or bid on a wide range of freelance jobs.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className=" p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <FaLock className="text-4xl text-blue-500 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">Secure Platform</h3>
+                <h3 className="text-xl font-semibold mb-2 text-center">Secure Platform</h3>
                 <p className="text-gray-600 text-sm text-center">
                   Safety is our priority. Your data and payments are protected with top-grade security.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className=" p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <FaMobileAlt className="text-4xl text-green-500 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">Accessible Anywhere</h3>
+                <h3 className="text-xl font-semibold mb-2 text-center">Accessible Anywhere</h3>
                 <p className="text-gray-600 text-sm text-center">
                   Our mobile-friendly interface helps you stay connected, post jobs or work from any device.
                 </p>
@@ -76,35 +76,35 @@ const About = () => {
             </div>
           </section>
 
-          <section className="mb-16 p-6 md:p-8 bg-blue-600 text-white rounded-xl shadow-2xl">
+          <section className="mb-16 p-6 md:p-8 rounded-xl shadow-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 md:mb-12">Our Core Values</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               <div className="flex items-start">
                 <FaThumbsUp className="text-3xl text-yellow-300 mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold mb-1">Trust & Reliability</h4>
-                  <p className="text-blue-100 text-sm">We help you build connections based on reputation, reviews, and results.</p>
+                  <p className=" text-sm">We help you build connections based on reputation, reviews, and results.</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <FaHeart className="text-3xl text-pink-300 mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold mb-1">People-First</h4>
-                  <p className="text-blue-100 text-sm">Our users are at the heart of every feature we build.</p>
+                  <p className=" text-sm">Our users are at the heart of every feature we build.</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <FaGlobe className="text-3xl text-green-300 mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold mb-1">Global Access</h4>
-                  <p className="text-blue-100 text-sm">Connect and collaborate with freelancers and clients globally.</p>
+                  <p className=" text-sm">Connect and collaborate with freelancers and clients globally.</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <FaUsers className="text-3xl text-indigo-200 mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold mb-1">Community Driven</h4>
-                  <p className="text-blue-100 text-sm">We grow together through shared opportunities, events, and tools.</p>
+                  <p className=" text-sm">We grow together through shared opportunities, events, and tools.</p>
                 </div>
               </div>
             </div>
@@ -112,8 +112,8 @@ const About = () => {
 
           <section className="grid md:grid-cols-3 gap-8 mb-16">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Categories</h3>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h3 className="font-semibold  mb-2">Categories</h3>
+              <ul className="space-y-1 text-sm ">
                 <li><strong>Web Development & Tech:</strong> Build or maintain websites, apps, and software systems.</li>
                 <li><strong>Graphics & Design:</strong> From logos to UI/UX, find creative design talent.</li>
                 <li><strong>Digital Marketing:</strong> Boost your brand with SEO, social media, and PPC experts.</li>
@@ -123,8 +123,8 @@ const About = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">For Clients</h3>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h3 className="font-semibold mb-2">For Clients</h3>
+              <ul className="space-y-1 text-sm ">
                 <li><strong>How It Works:</strong> Learn how to post tasks, hire freelancers, or find work opportunities. Our step-by-step guide makes it easy for anyone to get started.</li>
                 <li><strong>Success Stories:</strong> Discover inspiring stories from users who turned simple tasks into lasting careers. Real results, real people, real growth.</li>
                 <li><strong>Trust & Safety:</strong> We prioritize your security with verified profiles, secure payments, and dispute resolution support. Your peace of mind is our mission.</li>
@@ -133,8 +133,8 @@ const About = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">For Freelancers</h3>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h3 className="font-semibold  mb-2">For Freelancers</h3>
+              <ul className="space-y-1 text-sm ">
                 <li><strong>Become a Freelancer:</strong> Ready to earn on your own terms? Sign up and showcase your skills to get matched with clients who need your talent.</li>
                 <li><strong>Freelancer Tools:</strong> Access powerful tools to manage your tasks, track time, send proposals, and grow your freelancing career with ease.</li>
                 <li><strong>Community Hub:</strong> Join a vibrant community of freelancers. Share experiences, get tips, and connect with others on a similar journey.</li>
@@ -144,7 +144,7 @@ const About = () => {
           </section>
 
           <section className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Ready to Post or Get a Job?</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Ready to Post or Get a Job?</h2>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               Join {companyName} and take control of your freelance opportunities today!
             </p>

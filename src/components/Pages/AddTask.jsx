@@ -35,7 +35,7 @@ const AddTask = () => {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || 'Failed to save task');  
+        throw new Error(errorData.message || 'Failed to save task');
 
         // pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
       }
@@ -60,8 +60,8 @@ const AddTask = () => {
   };
 
   return (
-    <section className="min-h-screen bg-indigo-50 flex items-center justify-center px-4 py-8">
-      <div className="w-full max-w-xl bg-white rounded-xl shadow-lg p-8">
+    <section className="min-h-screen  flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-xl  rounded-xl shadow-lg p-8">
         <title>Add New Task || Task Match</title>
         <h2 className="text-2xl font-bold text-indigo-700 mb-6">Add a New Task</h2>
 
@@ -170,13 +170,19 @@ const AddTask = () => {
             </div>
 
             {/* Submit */}
-            <button
-              type="submit"
-              className="btn btn-primary w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Adding…' : 'Add Task'}
-            </button>
+            <div className='text-center mt-9'>
+              <button
+                type="submit"
+                className="btn btn-wide py-2 px-4 border border-gray-300 relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-indigo-100 rounded hover:bg-white group"
+                disabled={isSubmitting}
+              >
+                <span className="w-70 h-48 rounded bg-indigo-600 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                <span className="relative text-indigo-600 transition-colors duration-300 ease-in-out group-hover:text-white">
+                  {isSubmitting ? 'Updating…' : 'Update Task'}
+                </span>
+              </button>
+
+            </div>
           </form>
         )}
       </div>

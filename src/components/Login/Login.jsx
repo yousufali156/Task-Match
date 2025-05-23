@@ -47,12 +47,12 @@ const Login = () => {
     };
 
     return (
-        <div className="mt-5 mb-5 min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-500 px-4 py-4">
+        <div className="mt-5 mb-5 min-h-screen flex items-center justify-center  px-4 py-4">
            <title>Login || Task Match</title>
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden w-full max-w-4xl p-8 sm:p-12 flex flex-col lg:flex-row relative">
+            <div className="bg-gradient-to-r from-indigo-500 to-blue-700 rounded-3xl shadow-xl overflow-hidden w-full max-w-4xl p-8 sm:p-12 flex flex-col lg:flex-row relative">
 
                 {/* Left Logo Panel */}
-                <div className="lg:w-1/2 flex rounded-2xl flex-col justify-center items-center p-4 lg:p-8 bg-gradient-to-r from-blue-600 to-indigo-500 text-white lg:rounded-3xl">
+                <div className="lg:w-1/2 flex rounded-2xl flex-col justify-center items-center p-4 lg:p-8 bg-gradient-to-r from-blue-600 to-blue-500 text-white lg:rounded-3xl">
                     <div className="flex rounded-full items-center justify-center mb-4 glow-border">
                         <img src={logo} alt="Logo" className="w-full rounded-3xl" />
                     </div>
@@ -62,7 +62,7 @@ const Login = () => {
                 {/* Right Form Panel */}
                 <div className="lg:w-1/2 mt-8 lg:mt-0 lg:pl-8">
                     <form onSubmit={handleLogin} className="space-y-6">
-                        <h2 className="text-2xl font-semibold text-center text-indigo-600">Login to Your Account</h2>
+                        <h2 className="text-3xl font-bold text-center text-emerald-500">Login to Your Account</h2>
 
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
@@ -90,12 +90,12 @@ const Login = () => {
                             />
                         </div>
 
-                        <div className="flex justify-between items-center text-sm text-gray-600">
+                        <div className="flex justify-between items-center text-sm">
                             <label htmlFor="rememberMe" className="flex items-center">
                                 <input type="checkbox" id="rememberMe" className="mr-2" />
                                 Remember Me
                             </label>
-                            <Link to="/reset-password" className="text-blue-500 hover:underline">Forgot Password?</Link>
+                            <Link to="/reset-password" className="text-red-400 hover:underline">Forgot Password?</Link>
                         </div>
 
                         <button
@@ -105,8 +105,8 @@ const Login = () => {
                             Login
                         </button>
 
-                        <p className="text-sm text-center text-gray-500 mt-4">
-                            Don’t have an account? <Link to="/register" className="text-blue-500 hover:underline">Register</Link>
+                        <p className="text-sm text-center mt-4">
+                            Don’t have an account? <Link to="/register" className="text-blue-400 hover:underline">Register</Link>
                         </p>
                     </form>
 

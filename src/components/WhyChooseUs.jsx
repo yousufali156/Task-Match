@@ -7,8 +7,8 @@ const WhyChooseUs = () => {
 
                 {/* Why Choose Us */}
                 <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Why Choose Us</h2>
-                    <ul className="space-y-4 text-gray-700">
+                    <h2 className="text-2xl font-bold mb-6">Why Choose Us</h2>
+                    <ul className="space-y-4">
                         <li className="flex items-start">
                             <span className="text-blue-600 mr-3 mt-1">✔</span>
                             <span>Wide range of skilled freelancers</span>
@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
 
                 {/* How It Works */}
                 <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">How It Works</h2>
+                    <h2 className="text-2xl font-bold mb-6">How It Works</h2>
                     <div className="space-y-6">
                         {[
                             "Post a task with your requirements",
@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
                                     </div>
                                     {index < 2 && <div className="w-px bg-blue-200 h-6"></div>}
                                 </div>
-                                <p className="text-gray-700">{text}</p>
+                                <p className="">{text}</p>
                             </div>
                         ))}
                     </div>

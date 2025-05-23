@@ -1,19 +1,37 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto mt-5 flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-16 bg-white">
-        <title>Home || Task Match</title>
+    <div className="container mx-auto mt-5 flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-16">
+      <title>Home || Task Match</title>
       {/* Left text section */}
       <div className="text-center md:text-left max-w-xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Find Freelancers for <br /> Your Small Tasks
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+          Find Freelancers for <br />
+          <Typewriter
+            words={[" Your Small Tasks"]}
+            loop={0}
+            cursor
+            cursorStyle="_"
+            typeSpeed={90}
+            deleteSpeed={50}
+            delaySpeed={2000}
+          />
         </h1>
         <p className="text-gray-600 mb-6">
-          Connect with skilled freelancers to get your tasks done quickly and efficiently.
+          <Typewriter
+            words={["Connect with skilled freelancers to get your tasks done quickly and efficiently."]}
+            loop={0}
+            cursor
+            cursorStyle="_"
+            typeSpeed={90}
+            deleteSpeed={50}
+            delaySpeed={2000}
+          />
         </p>
         <button
           onClick={() => navigate('/get-started')}

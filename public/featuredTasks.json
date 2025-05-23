@@ -3,36 +3,84 @@
     "id": 1,
     "title": "Build a Portfolio Website",
     "category": "Web Development",
-    "bid": "$50 - $500"
+    "bid": "$50 - $500",
+    "description": "Design and develop a responsive personal portfolio site. Should include sections for projects, about, and contact."
   },
   {
     "id": 2,
     "title": "Create a Landing Page",
     "deadline": "May 3, 2024",
-    "bid": "$500 - $500"
+    "bid": "$500 - $500",
+    "description": "Develop a modern, high-converting landing page. Must be optimized for speed and mobile devices."
   },
   {
     "id": 3,
     "title": "Fix Website Bugs",
     "deadline": "May 2, 2024",
-    "budget": "$150"
+    "budget": "$150",
+    "description": "Identify and fix front-end issues on an existing site. Focus on layout inconsistencies and JavaScript errors."
   },
   {
     "id": 4,
     "title": "Design a Company Logo",
     "deadline": "May 3, 2024",
-    "budget": "$150"
+    "budget": "$150",
+    "description": "Create a clean and professional logo for a new startup. Deliver source files in AI, PNG, and SVG formats."
   },
   {
     "id": 5,
     "title": "Write Blog Articles",
     "deadline": "May 2, 2024",
-    "budget": "$150"
+    "budget": "$150",
+    "description": "Write 5 SEO-optimized articles on tech trends. Each article should be 800–1000 words and plagiarism-free."
   },
   {
     "id": 6,
     "title": "Social Media Marketing",
     "deadline": "May 3, 2024",
-    "budget": "$150"
+    "budget": "$150",
+    "description": "Manage and grow our Instagram and Facebook accounts. Schedule 3-4 engaging posts per week with graphics."
+  },
+  {
+    "id": 7,
+    "title": "Develop a Mobile App",
+    "deadline": "May 10, 2024",
+    "bid": "$1000 - $3000",
+    "description": "Build a cross-platform app for a booking system. Features include user login, calendar, and notifications."
+  },
+  {
+    "id": 8,
+    "title": "Create a Brand Style Guide",
+    "deadline": "May 8, 2024",
+    "budget": "$200",
+    "description": "Develop a visual identity guide including colors, fonts, and logo usage. PDF format preferred for delivery."
+  },
+  {
+    "id": 9,
+    "title": "Set Up Google Analytics",
+    "deadline": "May 6, 2024",
+    "budget": "$100",
+    "description": "Integrate Google Analytics with our website. Provide a quick tutorial on using reports and custom events."
+  },
+  {
+    "id": 10,
+    "title": "Design Product Packaging",
+    "deadline": "May 12, 2024",
+    "budget": "$250",
+    "description": "Create packaging design for a new health supplement. Must follow FDA labeling standards and look modern."
+  },
+  {
+    "id": 11,
+    "title": "Edit Promotional Video",
+    "deadline": "May 7, 2024",
+    "bid": "$300 - $600",
+    "description": "Edit raw footage into a polished 60-second promo video. Add transitions, background music, and branding."
+  },
+  {
+    "id": 12,
+    "title": "Translate Website Content",
+    "deadline": "May 9, 2024",
+    "budget": "$180",
+    "description": "Translate a 5-page website from English to Spanish. Maintain professional tone and technical accuracy."
   }
 ]
