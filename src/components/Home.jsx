@@ -4,6 +4,7 @@ import FeaturedTask from './FeaturedTask';
 import Slider from './Slider';
 import ReviewSection from './ReviewSection';
 import Tasks from './Tasks';
+import TechMatchNeeds from './TechMatchNeeds';
 
 
 
@@ -15,9 +16,10 @@ const Home = () => {
             <Hero></Hero>
             <FeaturedTask></FeaturedTask>
             <Slider></Slider>
+            <TechMatchNeeds></TechMatchNeeds>
             <WhyChooseUs></WhyChooseUs>
-            <ReviewSection></ReviewSection>
             <Tasks></Tasks>
+            <ReviewSection></ReviewSection>
           
         </div>
     );
