@@ -36,8 +36,6 @@ const AddTask = () => {
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || 'Failed to save task');
-
-        // pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
       }
 
       toast.success('✅ Task added successfully!');
@@ -60,8 +58,8 @@ const AddTask = () => {
   };
 
   return (
-    <section className="min-h-screen  flex items-center justify-center px-4 py-8">
-      <div className="w-full max-w-xl  rounded-xl shadow-lg p-8">
+    <section className="min-h-screen flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-xl rounded-xl shadow-lg p-8">
         <title>Add New Task || Task Match</title>
         <h2 className="text-2xl font-bold text-indigo-700 mb-6">Add a New Task</h2>
 
@@ -116,13 +114,21 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Deadline */}
+            {/* Deadline with Validation */}
             <div>
               <label className="block mb-1 font-medium">Deadline</label>
               <input
                 type="date"
                 className="input input-bordered w-full"
-                {...register('deadline', { required: 'Pick a deadline' })}
+                {...register('deadline', {
+                  required: 'Pick a deadline',
+                  validate: (value) => {
+                    const selectedDate = new Date(value);
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+                    return selectedDate >= today || 'Deadline cannot be in the past';
+                  }
+                })}
               />
               {errors.deadline && (
                 <p className="text-red-500 text-sm mt-1">{errors.deadline.message}</p>
@@ -147,7 +153,7 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Read-only fields */}
+            {/* Read-only Fields */}
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block mb-1 font-medium">Your Name</label>
@@ -170,7 +176,7 @@ const AddTask = () => {
             </div>
 
             {/* Submit */}
-            <div className='text-center mt-9'>
+            <div className="text-center mt-9">
               <button
                 type="submit"
                 className="btn btn-wide py-2 px-4 border border-gray-300 relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-indigo-100 rounded hover:bg-white group"
@@ -181,7 +187,6 @@ const AddTask = () => {
                   {isSubmitting ? 'Updating…' : 'Update Task'}
                 </span>
               </button>
-
             </div>
           </form>
         )}

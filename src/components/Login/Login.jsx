@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router'; 
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 import logo from '../../assets/freelance.png';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const {loginUser, setUser, createUserWithGoogle } = useContext(FireBaseAuthContext);
+    const { loginUser, setUser, createUserWithGoogle } = useContext(FireBaseAuthContext);
     const [formData, setFormData] = useState({ email: '', password: '' });
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,12 +23,10 @@ const Login = () => {
 
         loginUser(email, password)
             .then((result) => {
-                const currentUser = result.user 
-                setUser(currentUser)
-                console.log(currentUser)
-                
+                const currentUser = result.user;
+                setUser(currentUser);
                 toast.success('Login successful');
-                navigate(from, { replace: true });
+                navigate(from, { replace: true }); // ✅ Redirect to previous path
             })
             .catch(error => {
                 toast.error(error.message);
@@ -37,9 +35,10 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         createUserWithGoogle()
-            .then(() => {
+            .then((result) => {
+                setUser(result.user);
                 toast.success('Login with Google successful');
-                navigate(from, { replace: true });
+                navigate(from, { replace: true }); // ✅ Redirect to previous path
             })
             .catch(error => {
                 toast.error(error.message);
@@ -47,8 +46,8 @@ const Login = () => {
     };
 
     return (
-        <div className="mt-5 mb-5 min-h-screen flex items-center justify-center  px-4 py-4">
-           <title>Login || Task Match</title>
+        <div className="mt-5 mb-5 min-h-screen flex items-center justify-center px-4 py-4">
+            <title>Login || Task Match</title>
             <div className="bg-gradient-to-r from-indigo-500 to-blue-700 rounded-3xl shadow-xl overflow-hidden w-full max-w-4xl p-8 sm:p-12 flex flex-col lg:flex-row relative">
 
                 {/* Left Logo Panel */}
@@ -111,7 +110,7 @@ const Login = () => {
                     </form>
 
                     {/* Google Sign-In */}
-                    <div className='text-center'>
+                    <div className="text-center">
                         <button
                             onClick={handleGoogleSignIn}
                             type="button"
