@@ -87,12 +87,6 @@ const router = createBrowserRouter([
         </PrivateRoute>,
       },
       {
-        path: 'users',
-        hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
-        loader: () => fetch('https://assignment-10-grapes-server.vercel.app/users'),
-        Component: Users
-      },
-      {
         path: 'update-task/:id',
         hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
         loader: ({ params }) => fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${params.id}`),
