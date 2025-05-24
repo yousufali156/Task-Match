@@ -17,6 +17,9 @@ const AddTask = () => {
     formState: { errors, isSubmitting }
   } = useForm();
 
+  // Get today's date in YYYY-MM-DD format for use in the date input
+  const today = new Date().toISOString().split('T')[0];
+
   const onSubmit = async (data) => {
     try {
       const task = {
@@ -114,20 +117,15 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Deadline with Validation */}
+            {/* Deadline with min date */}
             <div>
               <label className="block mb-1 font-medium">Deadline</label>
               <input
                 type="date"
+                min={today}
                 className="input input-bordered w-full"
                 {...register('deadline', {
-                  required: 'Pick a deadline',
-                  validate: (value) => {
-                    const selectedDate = new Date(value);
-                    const today = new Date();
-                    today.setHours(0, 0, 0, 0);
-                    return selectedDate >= today || 'Deadline cannot be in the past';
-                  }
+                  required: 'Pick a deadline'
                 })}
               />
               {errors.deadline && (

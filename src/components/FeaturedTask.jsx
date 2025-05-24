@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 const FeaturedTask = () => {
@@ -7,7 +8,7 @@ const FeaturedTask = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch('../../public/featuredTasks.json'); 
+        const res = await fetch('/featuredTasks.json'); 
         const data = await res.json();
         setTasks(data);
       } catch (err) {
@@ -26,7 +27,7 @@ const FeaturedTask = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {visibleTasks.map((task) => (
           <div
-            key={task._id} 
+            key={task.id}
             className="bg-base-300 p-6 rounded-xl shadow-sm hover:shadow-md transition"
           >
             <h3 className="text-lg font-semibold text-blue-700 mb-2">

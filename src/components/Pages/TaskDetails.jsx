@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, Link, useNavigate } from 'react-router';
+import { useParams, Link, useNavigate, } from 'react-router';
 import { Player } from '@lottiefiles/react-lottie-player';
 import loadingAnimation from '../../assets/loading.json';
 import { Fade } from 'react-awesome-reveal';
-import Swal from 'sweetalert2';
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 
 const TaskDetails = () => {
@@ -40,32 +39,6 @@ const TaskDetails = () => {
     fetchData();
   }, [id]);
 
-  const handleDelete = async () => {
-    const confirm = await Swal.fire({
-      title: 'Are you sure?',
-      text: 'This task will be permanently deleted.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Yes, delete it!'
-    });
-
-    if (confirm.isConfirmed) {
-      try {
-        const res = await fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${id}`, {
-          method: 'DELETE'
-        });
-        if (!res.ok) throw new Error('Delete failed');
-        Swal.fire('Deleted!', 'Your task has been deleted.', 'success');
-        navigate('/browse-tasks');
-      } catch (err) {
-        console.error('Delete failed:', err);
-        Swal.fire('Error', 'Could not delete task', 'error');
-      }
-    }
-  };
-
   if (loading) {
     return (
       <div className="flex justify-center mt-20">
@@ -92,20 +65,11 @@ const TaskDetails = () => {
         <p className="text-sm mb-2"><strong>Posted by:</strong> {task.name} ({task.email})</p>
         <p className="mt-4 text-green-700 font-medium">You bid for {bidsCount} opportunities.</p>
 
-        {/* Action Buttons */}
-        {user?.email === task.email && (
-          <div className="mt-6 flex gap-4 flex-wrap">
-            <Link to={`/update-task/${task._id}`}>
-              <button className="btn btn-warning">✏️ Update</button>
-            </Link>
-            <button onClick={handleDelete} className="btn btn-error">❌ Delete</button>
-          </div>
-        )}
-
         <Link to="/browse-tasks">
           <button className="btn btn-outline btn-primary mt-6 w-full">🔍 Browse Available Tasks</button>
         </Link>
       </div>
+
     </Fade>
   );
 };
