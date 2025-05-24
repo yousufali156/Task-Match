@@ -46,7 +46,7 @@ const Register = () => {
             createdAt: new Date().toISOString(),
           };
 
-          return fetch('http://localhost:3000/users', {
+          return fetch('https://assignment-10-grapes-server.vercel.app/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData),
@@ -76,7 +76,7 @@ const Register = () => {
           createdAt: new Date().toISOString(),
         };
 
-        fetch('http://localhost:3000/users', {
+        fetch('https://assignment-10-grapes-server.vercel.app/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(userData),

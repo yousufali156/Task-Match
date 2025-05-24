@@ -22,13 +22,13 @@ const TaskDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/tasks/${id}`);
+        const res = await fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${id}`);
         if (!res.ok) throw new Error('Task not found');
         const data = await res.json();
         setTask(data);
 
         // Optional: Fetch bids count if stored separately
-        const bidsRes = await fetch(`http://localhost:3000/tasks/${id}/bids`);
+        const bidsRes = await fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${id}/bids`);
         const bids = await bidsRes.json();
         setBidsCount(bids.length || 0);
       } catch (error) {
@@ -53,7 +53,7 @@ const TaskDetails = () => {
 
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:3000/tasks/${id}`, {
+        const res = await fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${id}`, {
           method: 'DELETE'
         });
         if (!res.ok) throw new Error('Delete failed');

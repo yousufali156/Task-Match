@@ -27,7 +27,7 @@ const AddTask = () => {
         status: 'open'
       };
 
-      const response = await fetch('http://localhost:3000/tasks', {
+      const response = await fetch('https://assignment-10-grapes-server.vercel.app/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(task)

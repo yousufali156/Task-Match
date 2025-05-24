@@ -10,7 +10,7 @@ const MyPostedTasks = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch('http://localhost:3000/tasks')
+      fetch('https://assignment-10-grapes-server.vercel.app/tasks')
         .then((res) => res.json())
         .then((data) => {
           const filtered = data.filter(task => task.email === user.email);
@@ -30,7 +30,7 @@ const MyPostedTasks = () => {
   const handleDelete = (id) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this task?');
     if (confirmDelete) {
-      fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" })
+      fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${id}`, { method: "DELETE" })
         .then(res => res.json())
         .then(data => {
           if (data.deletedCount) {

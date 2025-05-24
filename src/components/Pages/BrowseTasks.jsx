@@ -6,7 +6,7 @@ const BrowseTasks = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/tasks')
+    fetch('https://assignment-10-grapes-server.vercel.app/tasks')
       .then(res => res.json())
       .then(data => {
         setTasks(data);

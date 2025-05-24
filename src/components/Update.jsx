@@ -35,7 +35,7 @@ const Update = () => {
         };
 
         try {
-            const response = await fetch(`http://localhost:3000/tasks/${task._id}`, {
+            const response = await fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${task._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
-        loader: () => fetch('http://localhost:3000/tasks'),
+        loader: () => fetch('https://assignment-10-grapes-server.vercel.app/tasks'),
         Component: Home
       },
       {
@@ -74,13 +74,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'about',
-        element:<PrivateRoute>
+        element: <PrivateRoute>
           <About></About>
         </PrivateRoute>,
       },
       {
         path: '/tasks/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
+        hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
+        loader: ({ params }) => fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${params.id}`),
         element: <PrivateRoute>
           <BidsDetails></BidsDetails>
         </PrivateRoute>,
@@ -88,13 +89,13 @@ const router = createBrowserRouter([
       {
         path: 'users',
         hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
-        loader: () => fetch('http://localhost:3000/users'),
+        loader: () => fetch('https://assignment-10-grapes-server.vercel.app/users'),
         Component: Users
       },
       {
         path: 'update-task/:id',
         hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
-        loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${params.id}`),
         Component: Update
       },
 

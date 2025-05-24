@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router'; 
+import { Link, NavLink, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { FireBaseAuthContext } from '../Provider/FireBaseAuthContext';
 import ThemeToggle from './ThemeToggle';
@@ -54,7 +54,7 @@ function Navbar() {
           </svg>
         </button>
         <ThemeToggle></ThemeToggle>
-
+       
       </div>
 
       {/* Desktop Menu */}
@@ -112,9 +112,9 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        
+
         <div className="absolute bg-base-300 top-16 left-0 w-full border-t md:hidden z-50">
-                     
+
 
           <ul className="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
             <li><NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink></li>
@@ -122,7 +122,7 @@ function Navbar() {
             <li><NavLink to="/browse-tasks" onClick={toggleMobileMenu}>Browse Tasks</NavLink></li>
             <li><NavLink to="/my-posted-tasks" onClick={toggleMobileMenu}>My Posted Tasks</NavLink></li>
             <li><NavLink to="/about" onClick={toggleMobileMenu}>About</NavLink></li>
-            
+
             {user ? (
               <>
                 <li>
