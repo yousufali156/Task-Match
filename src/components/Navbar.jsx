@@ -43,7 +43,7 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu Toggle */}
-      <div className="md:hidden">
+      <div className="md:hidden flex items-center">
         <button
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
@@ -58,7 +58,7 @@ function Navbar() {
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex space-x-6 text-sm font-medium items-center">
+      <ul className="hidden md:flex space-x-6 text-sm font-medium items-center ">
         <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
         <li><NavLink to="/add-task" className={navLinkClass}>Add Task</NavLink></li>
         <li><NavLink to="/browse-tasks" className={navLinkClass}>Browse Tasks</NavLink></li>

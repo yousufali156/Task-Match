@@ -10,7 +10,7 @@ const categories = ['Design', 'Development', 'Writing', 'Marketing', 'Virtual As
 
 const Update = () => {
     const { user } = useContext(FireBaseAuthContext);
-    const task = useLoaderData(); // Loaded task from route loader
+    const task = useLoaderData(); 
     const navigate = useNavigate();
 
     const {
