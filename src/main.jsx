@@ -19,7 +19,6 @@ import TaskDetails from './components/Pages/TaskDetails.jsx';
 import MyPostedTasks from './components/Pages/MyPostedTask.jsx';
 import Register from './components/Register/Register.jsx';
 import About from './components/Pages/About.jsx';
-import Users from './components/Pages/Users.jsx';
 import Update from './components/Update.jsx';
 import BidsDetails from './components/BidsDetails.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
