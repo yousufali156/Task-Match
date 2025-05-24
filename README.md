@@ -1,12 +1,23 @@
 # Assignment-10-Grapes-Client-Side
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# TaskConnect
 
-Currently, two official plugins are available:
+**Live Site:** [https://grapes-market.web.app](https://grapes-market.web.app) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+**TaskConnect** is a dynamic platform that bridges the gap between individuals who need tasks done and freelancers looking for work. Whether it's a quick graphic design, writing job, or tech help, TaskConnect makes it easy to post, bid, and complete tasks efficiently.
 
-## Expanding the ESLint configuration
+## 🔥 Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ **Post a Task**: Users can easily create and publish tasks with details like category, deadline, budget, and description.
+- 🔍 **Browse and Bid**: Freelancers can explore a list of available tasks and submit competitive bids with personalized proposals.
+- 👤 **User Authentication**: Secure Google and email/password login using Firebase for both clients and freelancers.
+- 🛠 **Skill-Based Matching**: Search and filter tasks or freelancers based on required skills, budget, and deadlines.
+- 💬 **Connect and Collaborate**: Users can view bidder profiles, communicate, and manage selected tasks seamlessly.
+
+## Tech Stack
+
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **Authentication**: Firebase Auth
