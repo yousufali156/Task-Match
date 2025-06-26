@@ -26,19 +26,22 @@ const Login = () => {
                 const currentUser = result.user;
                 setUser(currentUser);
                 toast.success('Login successful');
-                navigate(from, { replace: true }); // ✅ Redirect to previous path
+                navigate(from, { replace: true }); 
             })
             .catch(error => {
                 toast.error(error.message);
             });
-    };
+    };  
+
+
+    
 
     const handleGoogleSignIn = () => {
         createUserWithGoogle()
             .then((result) => {
                 setUser(result.user);
                 toast.success('Login with Google successful');
-                navigate(from, { replace: true }); // ✅ Redirect to previous path
+                navigate(from, { replace: true }); 
             })
             .catch(error => {
                 toast.error(error.message);
