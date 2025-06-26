@@ -16,36 +16,59 @@ const BrowseTasks = () => {
         console.error('Failed to fetch task data:', err);
         setLoading(false);
       });
-
   }, []);
 
-  if (loading) return <p className="text-center mt-10">Loading tasks...</p>;
- 
+  if (loading)
+    return (
+      <p className="text-center mt-10 text-gray-600 dark:text-gray-300">
+        Loading tasks...
+      </p>
+    );
+
   return (
     <section className="min-h-screen py-10 px-4">
       <div className="max-w-6xl mx-auto">
         <title>Browse Tasks || Task Match</title>
-        <h2 className="text-3xl font-bold text-indigo-700 mb-8 text-center">
+        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-blue-400">
           Browse Available Tasks
         </h2>
 
         {tasks.length === 0 ? (
-          <p className="text-center text-gray-500">No tasks available right now.</p>
+          <p className="text-center text-gray-500 dark:text-gray-400">
+            No tasks available right now.
+          </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
             {tasks.map(task => (
-              <div key={task._id} className="bg-base-300 rounded-xl shadow p-5 hover:shadow-lg transition">
-                <h3 className="text-xl font-semibold text-indigo-600">{task.title}</h3>
-                <p className="text-sm text-gray-600 mb-1">Category: {task.category}</p>
-                <p className="text-gray-700 mb-3 line-clamp-2">{task.description}</p>
-                <p className="text-gray-500 text-sm mb-1">Deadline: {task.deadline}</p>
-                <p className="text-indigo-500 font-medium mb-4">Budget: ${task.budget}</p>
+              <div
+                key={task._id}
+                className="bg-base-300 rounded-xl shadow p-5 hover:shadow-lg transition duration-300 flex flex-col justify-between h-[300px]"
+              >
+                <div className="flex-grow flex flex-col gap-2">
+                  <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-400">
+                    {task.title}
+                  </h3>
 
-                <Link to={`/tasks/${task._id}`}>
-                  <button className="btn btn-outline btn-primary w-full">
-                    See Details
-                  </button>
-                </Link>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                    {task.description}
+                  </p>
+
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <strong>Deadline:</strong> {task.deadline}
+                  </p>
+
+                  <p className="text-indigo-500 dark:text-indigo-300 font-medium">
+                    <strong>Budget:</strong> ${task.budget}
+                  </p>
+                </div>
+
+                <div className="pt-3">
+                  <Link to={`/tasks/${task._id}`}>
+                    <button className="btn btn-outline btn-primary w-full">
+                      🔍 See Details
+                    </button>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

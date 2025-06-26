@@ -4,7 +4,7 @@ import { FireBaseAuthContext } from '../Provider/FireBaseAuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const PrivateRoute = ({ children }) => {
-    const { user, loading } = useContext(FireBaseAuthContext); // ✅ fixed useContext
+    const { user, loading } = useContext(FireBaseAuthContext); 
     const location = useLocation();
 
     if (loading) {

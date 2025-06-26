@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router'; // ✅ Corrected import
 
 const FeaturedTask = () => {
   const [tasks, setTasks] = useState([]);
@@ -8,7 +8,7 @@ const FeaturedTask = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch('/featuredTasks.json'); 
+        const res = await fetch('/featuredTasks.json');
         const data = await res.json();
         setTasks(data);
       } catch (err) {
@@ -18,43 +18,63 @@ const FeaturedTask = () => {
     fetchTasks();
   }, []);
 
-  const visibleTasks = showAll ? tasks : tasks.slice(0, 6);
+  const visibleTasks = showAll ? tasks : tasks.slice(0, 8);
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-12 lg:px-20">
-      <h2 className="text-2xl font-bold mb-8">Featured Tasks</h2>
+      <h2 className="text-3xl font-extrabold mb-10 text-center text-purple-500 dark:text-purple-400">
+        🌟 Featured Tasks
+      </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {visibleTasks.map((task) => (
           <div
             key={task.id}
-            className="bg-base-300 p-6 rounded-xl shadow-sm hover:shadow-md transition"
+            className="bg-white dark:bg-base-300 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
           >
-            <h3 className="text-lg font-semibold text-blue-700 mb-2">
+            {/* Symbolic Logo Centered */}
+            {task.symbolicLogo && (
+              <div className="text-5xl mb-4 flex justify-center">
+                {task.symbolicLogo}
+              </div>
+            )}
+
+            {/* Title */}
+            <h3 className="text-xl font-bold text-center text-blue-700 dark:text-blue-400 mb-3">
               {task.title}
             </h3>
 
-            {task.category && (
-              <p className="text-sm text-gray-600 mb-1">Category: {task.category}</p>
-            )}
-
+            {/* Deadline */}
             {task.deadline && (
-              <p className="text-sm text-gray-600 mb-1">Deadline: {task.deadline}</p>
+              <p className="text-sm text-center text-gray-600 dark:text-gray-300 mb-1">
+                📅 <strong>Deadline:</strong> {task.deadline}
+              </p>
             )}
 
-            {task.bid && (
-              <p className="text-sm text-gray-600">Bid: {task.bid}</p>
+            {/* Bid or Budget */}
+            {task.bid ? (
+              <p className="text-sm text-center text-gray-700 dark:text-gray-300">
+                💰 <strong>Bid:</strong> {task.bid}
+              </p>
+            ) : (
+              <p className="text-sm text-center text-gray-700 dark:text-gray-300">
+                💸 <strong>Budget:</strong> {task.budget}
+              </p>
             )}
 
-            {task.budget && (
-              <p className="text-sm text-gray-600">Budget: {task.budget}</p>
-            )}
+            {/* View Details Button */}
+            <Link to={`/featured-tasks-details/${task.id}`}>
+              <button className="btn mt-5 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:scale-105 transition-transform">
+                🔍 View Details
+              </button>
+            </Link>
           </div>
         ))}
       </div>
 
-      {tasks.length > 6 && (
-        <div className="text-center mt-8">
+      {/* Show All / Show Less Button */}
+      {tasks.length > 8 && (
+        <div className="text-center mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
             className="btn btn-outline btn-primary"

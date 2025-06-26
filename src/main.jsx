@@ -22,6 +22,9 @@ import About from './components/Pages/About.jsx';
 import Update from './components/Update.jsx';
 import BidsDetails from './components/BidsDetails.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
+import Dashboard from './components/Dashboard/Dashboard.jsx';
+import FeaturedTask from './components/FeaturedTask.jsx';
+import FeaturedTaskDetails from './components/Pages/FeaturedTaskDetails.jsx';
 
 
 
@@ -47,6 +50,14 @@ const router = createBrowserRouter([
       {
         path: 'browse-tasks',
         Component: BrowseTasks
+      },
+      {
+        path: 'featured-tasks',
+        element: <FeaturedTask />
+      },
+      {
+        path: 'featured-tasks-details/:id',
+        element: <FeaturedTaskDetails />
       },
       {
         path: 'task-details/:id',
@@ -75,6 +86,12 @@ const router = createBrowserRouter([
         path: 'about',
         element: <PrivateRoute>
           <About></About>
+        </PrivateRoute>,
+      },
+      {
+        path: 'dashboard',
+        element: <PrivateRoute>
+          <Dashboard></Dashboard>
         </PrivateRoute>,
       },
       {

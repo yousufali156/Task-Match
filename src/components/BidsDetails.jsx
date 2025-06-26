@@ -21,19 +21,19 @@ const BidsDetails = () => {
   };
 
   return (
-    <div className="max-w-3xl text-center bg-base-300 mb-10 mx-auto p-6 mt-10 shadow-lg rounded-lg border border-gray-200">
-      <h2 className="text-2xl font-bold text-indigo-600 mb-4">{bid.title}</h2>
+    <div className="max-w-3xl text-center mb-10 mx-auto p-6 mt-10 shadow-lg rounded-lg border ">
+      <h2 className="text-3xl font-bold text-indigo-600 mb-4">{bid.title}</h2>
 
-      <p className="text-sm text-gray-500 mb-2"><strong>Category:</strong> {bid.category}</p>
-      <p className="text-sm text-gray-500 mb-2"><strong>Deadline:</strong> {bid.deadline}</p>
-      <p className="text-sm text-gray-500 mb-2"><strong>Status:</strong> {bid.status}</p>
-      <p className="text-sm text-gray-500 mb-2"><strong>Budget:</strong> ${bid.budget}</p>
+      <p className="text-sm  mb-2"><strong>Category:</strong> {bid.category}</p>
+      <p className="text-sm  mb-2"><strong>Deadline:</strong> {bid.deadline}</p>
+      <p className="text-sm  mb-2"><strong>Status:</strong> {bid.status}</p>
+      <p className="text-sm mb-2"><strong>Budget:</strong> ${bid.budget}</p>
 
-      <p className="text-gray-700 text-sm mb-1"><strong>Description:</strong></p>
-      <p className="text-gray-700 whitespace-pre-line">{bid.description}</p>
+      <p className=" text-sm mb-1"><strong>Description:</strong></p>
+      <p className=" whitespace-pre-line">{bid.description}</p>
 
       <p className="text-sm mt-5 whitespace-pre-line mb-1"><strong>Posted By:</strong></p>
-      <p className="text-gray-700 mb-2 whitespace-pre-line">
+      <p className=" mb-2 whitespace-pre-line">
         <strong>Name:</strong> {bid.name} <br /> <strong>Email:</strong> {bid.email}
       </p>
 
@@ -50,14 +50,14 @@ const BidsDetails = () => {
       {!isOwner && (
         <button
           onClick={handleBid}
-          className="btn btn-success mt-4 w-full hover:scale-105 transition"
+          className="btn btn-success mt-4 w-full hover:bg-green-500 transition"
         >
           💼 Bid Now
         </button>
       )}
 
       <Link to="/browse-tasks">
-        <button className="btn btn-outline btn-primary mt-6 w-full">
+        <button className="btn btn-primary hover:bg-indigo-700 mt-6 w-full">
           🔍 Browse Available Tasks
         </button>
       </Link>

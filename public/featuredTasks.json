@@ -5,83 +5,387 @@
     "category": "Web Development",
     "bid": "$50 - $500",
     "description": "Design and develop a responsive personal portfolio site. Should include sections for projects, about, and contact.",
-    "deadline": "May 25, 2025"
+    "deadline": "May 25, 2025",
+    "symbolicLogo": "🌐",
+    "bidCount": 27
   },
   {
     "id": 2,
     "title": "Create a Landing Page",
     "deadline": "May 26, 2025",
     "bid": "$500 - $500",
-    "description": "Develop a modern, high-converting landing page. Must be optimized for speed and mobile devices."
+    "description": "Develop a modern, high-converting landing page. Must be optimized for speed and mobile devices.",
+    "symbolicLogo": "📄",
+    "bidCount": 35
   },
   {
     "id": 3,
     "title": "Fix Website Bugs",
     "deadline": "May 27, 2025",
     "budget": "$150",
-    "description": "Identify and fix front-end issues on an existing site. Focus on layout inconsistencies and JavaScript errors."
+    "description": "Identify and fix front-end issues on an existing site. Focus on layout inconsistencies and JavaScript errors.",
+    "symbolicLogo": "🐞",
+    "bidCount": 14
   },
   {
     "id": 4,
     "title": "Design a Company Logo",
     "deadline": "May 28, 2025",
     "budget": "$150",
-    "description": "Create a clean and professional logo for a new startup. Deliver source files in AI, PNG, and SVG formats."
+    "description": "Create a clean and professional logo for a new startup. Deliver source files in AI, PNG, and SVG formats.",
+    "symbolicLogo": "🎨",
+    "bidCount": 40
   },
   {
     "id": 5,
     "title": "Write Blog Articles",
     "deadline": "May 29, 2025",
     "budget": "$150",
-    "description": "Write 5 SEO-optimized articles on tech trends. Each article should be 800\u20131000 words and plagiarism-free."
+    "description": "Write 5 SEO-optimized articles on tech trends. Each article should be 800–1000 words and plagiarism-free.",
+    "symbolicLogo": "✍️",
+    "bidCount": 18
   },
   {
     "id": 6,
     "title": "Social Media Marketing",
     "deadline": "May 30, 2025",
     "budget": "$150",
-    "description": "Manage and grow our Instagram and Facebook accounts. Schedule 3-4 engaging posts per week with graphics."
+    "description": "Manage and grow our Instagram and Facebook accounts. Schedule 3-4 engaging posts per week with graphics.",
+    "symbolicLogo": "📱",
+    "bidCount": 22
   },
   {
     "id": 7,
     "title": "Develop a Mobile App",
     "deadline": "May 31, 2025",
     "bid": "$1000 - $3000",
-    "description": "Build a cross-platform app for a booking system. Features include user login, calendar, and notifications."
+    "description": "Build a cross-platform app for a booking system. Features include user login, calendar, and notifications.",
+    "symbolicLogo": "📱",
+    "bidCount": 49
   },
   {
     "id": 8,
     "title": "Create a Brand Style Guide",
     "deadline": "June 01, 2025",
     "budget": "$200",
-    "description": "Develop a visual identity guide including colors, fonts, and logo usage. PDF format preferred for delivery."
+    "description": "Develop a visual identity guide including colors, fonts, and logo usage. PDF format preferred for delivery.",
+    "symbolicLogo": "📘",
+    "bidCount": 12
   },
   {
     "id": 9,
     "title": "Set Up Google Analytics",
     "deadline": "June 02, 2025",
     "budget": "$100",
-    "description": "Integrate Google Analytics with our website. Provide a quick tutorial on using reports and custom events."
+    "description": "Integrate Google Analytics with our website. Provide a quick tutorial on using reports and custom events.",
+    "symbolicLogo": "📊",
+    "bidCount": 30
   },
   {
     "id": 10,
     "title": "Design Product Packaging",
     "deadline": "June 03, 2025",
     "budget": "$250",
-    "description": "Create packaging design for a new health supplement. Must follow FDA labeling standards and look modern."
+    "description": "Create packaging design for a new health supplement. Must follow FDA labeling standards and look modern.",
+    "symbolicLogo": "📦",
+    "bidCount": 17
   },
   {
     "id": 11,
     "title": "Edit Promotional Video",
     "deadline": "June 04, 2025",
     "bid": "$300 - $600",
-    "description": "Edit raw footage into a polished 60-second promo video. Add transitions, background music, and branding."
+    "description": "Edit raw footage into a polished 60-second promo video. Add transitions, background music, and branding.",
+    "symbolicLogo": "🎥",
+    "bidCount": 33
   },
   {
     "id": 12,
     "title": "Translate Website Content",
     "deadline": "June 05, 2025",
     "budget": "$180",
-    "description": "Translate a 5-page website from English to Spanish. Maintain professional tone and technical accuracy."
+    "description": "Translate a 5-page website from English to Spanish. Maintain professional tone and technical accuracy.",
+    "symbolicLogo": "🌐",
+    "bidCount": 21
+  },
+  {
+    "id": 13,
+    "title": "Create an E-commerce Store",
+    "category": "Web Development",
+    "bid": "$700 - $4000",
+    "description": "Build a fully functional e-commerce store with payment gateway integration and user dashboard.",
+    "deadline": "June 06, 2025",
+    "symbolicLogo": "🛒",
+    "bidCount": 45
+  },
+  {
+    "id": 14,
+    "title": "Develop Chatbot Integration",
+    "category": "AI & Automation",
+    "bid": "$800 - $2500",
+    "description": "Integrate AI chatbot on company website to handle customer queries and support.",
+    "deadline": "June 07, 2025",
+    "symbolicLogo": "🤖",
+    "bidCount": 20
+  },
+  {
+    "id": 15,
+    "title": "SEO Optimization",
+    "category": "Marketing",
+    "bid": "$300 - $1000",
+    "description": "Improve website SEO to increase organic traffic and search ranking.",
+    "deadline": "June 08, 2025",
+    "symbolicLogo": "🔍",
+    "bidCount": 37
+  },
+  {
+    "id": 16,
+    "title": "Design Business Cards",
+    "category": "Graphic Design",
+    "budget": "$100",
+    "description": "Design modern and clean business cards with company branding.",
+    "deadline": "June 09, 2025",
+    "symbolicLogo": "💳",
+    "bidCount": 10
+  },
+  {
+    "id": 17,
+    "title": "Create Email Newsletter Template",
+    "category": "Marketing",
+    "budget": "$120",
+    "description": "Design responsive email newsletter templates compatible with major email clients.",
+    "deadline": "June 10, 2025",
+    "symbolicLogo": "✉️",
+    "bidCount": 29
+  },
+  {
+    "id": 18,
+    "title": "Write Technical Documentation",
+    "category": "Writing",
+    "budget": "$200",
+    "description": "Create comprehensive technical documentation for software API.",
+    "deadline": "June 11, 2025",
+    "symbolicLogo": "📚",
+    "bidCount": 16
+  },
+  {
+    "id": 19,
+    "title": "Conduct Market Research",
+    "category": "Research",
+    "budget": "$400",
+    "description": "Analyze competitors and market trends to guide product strategy.",
+    "deadline": "June 12, 2025",
+    "symbolicLogo": "📈",
+    "bidCount": 28
+  },
+  {
+    "id": 20,
+    "title": "Develop WordPress Theme",
+    "category": "Web Development",
+    "bid": "$600 - $1500",
+    "description": "Create a custom WordPress theme optimized for blogs and portfolios.",
+    "deadline": "June 13, 2025",
+    "symbolicLogo": "🌐",
+    "bidCount": 42
+  },
+  {
+    "id": 21,
+    "title": "Optimize Database Performance",
+    "category": "Database",
+    "budget": "$350",
+    "description": "Analyze and improve database queries to reduce load times.",
+    "deadline": "June 14, 2025",
+    "symbolicLogo": "🗄️",
+    "bidCount": 19
+  },
+  {
+    "id": 22,
+    "title": "Create Infographics",
+    "category": "Graphic Design",
+    "budget": "$150",
+    "description": "Design engaging infographics for social media campaigns.",
+    "deadline": "June 15, 2025",
+    "symbolicLogo": "📊",
+    "bidCount": 23
+  },
+  {
+    "id": 23,
+    "title": "Develop REST API",
+    "category": "Backend Development",
+    "bid": "$900 - $2000",
+    "description": "Build secure and scalable REST API for mobile app integration.",
+    "deadline": "June 16, 2025",
+    "symbolicLogo": "🔌",
+    "bidCount": 38
+  },
+  {
+    "id": 24,
+    "title": "Set Up Cloud Infrastructure",
+    "category": "DevOps",
+    "bid": "$1200 - $3500",
+    "description": "Configure AWS or Azure infrastructure for scalable web applications.",
+    "deadline": "June 17, 2025",
+    "symbolicLogo": "☁️",
+    "bidCount": 50
+  },
+  {
+    "id": 25,
+    "title": "Create Social Media Ads",
+    "category": "Marketing",
+    "budget": "$250",
+    "description": "Design and write copy for Facebook and Instagram ads.",
+    "deadline": "June 18, 2025",
+    "symbolicLogo": "📢",
+    "bidCount": 21
+  },
+  {
+    "id": 26,
+    "title": "Translate Mobile App",
+    "category": "Translation",
+    "budget": "$300",
+    "description": "Translate app content into French and German with cultural adaptations.",
+    "deadline": "June 19, 2025",
+    "symbolicLogo": "🌍",
+    "bidCount": 15
+  },
+  {
+    "id": 27,
+    "title": "Write Press Release",
+    "category": "Writing",
+    "budget": "$180",
+    "description": "Write press release announcing new product launch.",
+    "deadline": "June 20, 2025",
+    "symbolicLogo": "📰",
+    "bidCount": 12
+  },
+  {
+    "id": 28,
+    "title": "Conduct User Testing",
+    "category": "Research",
+    "budget": "$400",
+    "description": "Organize and analyze usability testing sessions for web app.",
+    "deadline": "June 21, 2025",
+    "symbolicLogo": "🧪",
+    "bidCount": 25
+  },
+  {
+    "id": 29,
+    "title": "Create Podcast Intro Music",
+    "category": "Audio Production",
+    "budget": "$200",
+    "description": "Compose 30-second intro music for a tech podcast.",
+    "deadline": "June 22, 2025",
+    "symbolicLogo": "🎵",
+    "bidCount": 8
+  },
+  {
+    "id": 30,
+    "title": "Design Newsletter Graphics",
+    "category": "Graphic Design",
+    "budget": "$130",
+    "description": "Create custom graphics for monthly email newsletter.",
+    "deadline": "June 23, 2025",
+    "symbolicLogo": "🖼️",
+    "bidCount": 19
+  },
+  {
+    "id": 31,
+    "title": "Build Custom CRM",
+    "category": "Software Development",
+    "bid": "$3000 - $7000",
+    "description": "Develop a customer relationship management system tailored for small businesses.",
+    "deadline": "June 24, 2025",
+    "symbolicLogo": "🗂️",
+    "bidCount": 44
+  },
+  {
+    "id": 32,
+    "title": "Optimize Website Speed",
+    "category": "Web Development",
+    "budget": "$250",
+    "description": "Improve load times and performance for an existing website.",
+    "deadline": "June 25, 2025",
+    "symbolicLogo": "⚡",
+    "bidCount": 32
+  },
+  {
+    "id": 33,
+    "title": "Design Event Flyer",
+    "category": "Graphic Design",
+    "budget": "$120",
+    "description": "Create an eye-catching flyer for an upcoming event.",
+    "deadline": "June 26, 2025",
+    "symbolicLogo": "📄",
+    "bidCount": 14
+  },
+  {
+    "id": 34,
+    "title": "Create YouTube Thumbnails",
+    "category": "Graphic Design",
+    "budget": "$100",
+    "description": "Design custom thumbnails for a YouTube channel.",
+    "deadline": "June 27, 2025",
+    "symbolicLogo": "🎬",
+    "bidCount": 20
+  },
+  {
+    "id": 35,
+    "title": "Build Chat Application",
+    "category": "Software Development",
+    "bid": "$1500 - $3500",
+    "description": "Develop a real-time chat application with group chat and file sharing.",
+    "deadline": "June 28, 2025",
+    "symbolicLogo": "💬",
+    "bidCount": 39
+  },
+  {
+    "id": 36,
+    "title": "Write Whitepaper",
+    "category": "Writing",
+    "budget": "$500",
+    "description": "Create a detailed whitepaper on blockchain technology.",
+    "deadline": "June 29, 2025",
+    "symbolicLogo": "📄",
+    "bidCount": 13
+  },
+  {
+    "id": 37,
+    "title": "Create Mobile Game Art",
+    "category": "Graphic Design",
+    "budget": "$800",
+    "description": "Design characters and backgrounds for a 2D mobile game.",
+    "deadline": "June 30, 2025",
+    "symbolicLogo": "🎮",
+    "bidCount": 24
+  },
+  {
+    "id": 38,
+    "title": "Set Up Email Automation",
+    "category": "Marketing",
+    "budget": "$350",
+    "description": "Configure email automation workflows for customer onboarding.",
+    "deadline": "July 01, 2025",
+    "symbolicLogo": "📧",
+    "bidCount": 27
+  },
+  {
+    "id": 39,
+    "title": "Translate Marketing Materials",
+    "category": "Translation",
+    "budget": "$220",
+    "description": "Translate brochures and flyers into Chinese and Japanese.",
+    "deadline": "July 02, 2025",
+    "symbolicLogo": "🌏",
+    "bidCount": 15
+  },
+  {
+    "id": 40,
+    "title": "Develop IoT Dashboard",
+    "category": "Software Development",
+    "bid": "$2500 - $6000",
+    "description": "Build a dashboard for managing and visualizing IoT device data.",
+    "deadline": "July 03, 2025",
+    "symbolicLogo": "📡",
+    "bidCount": 41
   }
 ]

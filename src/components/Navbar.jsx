@@ -34,88 +34,101 @@ function Navbar() {
 
   return (
     <nav
-      className="bg-base-200 sticky top-0 z-50 container mx-auto mt-3 px-6 py-4 flex justify-between items-center shadow-md"
+      className="bg-base-100 sticky top-0 z-50 shadow-md"
       style={{ boxShadow: getRandomShadowColor() }}
     >
-      {/* Logo */}
-      <div className="text-3xl font-bold">
-        <Link to="/">Task Match</Link>
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/logo.png"
+            alt="TaskMatch Logo"
+            className="w-12 h-12 md:w-14 md:h-14
+               transition-all duration-300 ease-in-out
+               brightness-95 dark:brightness-150
+               drop-shadow-md dark:drop-shadow-xl"
+          />
+          <span className="text-lg md:text-2xl font-bold">
+            <span className="text-blue-500 dark:text-blue-400">Task</span>
+            <span className="text-purple-700 dark:text-purple-300">Match</span>
+          </span>
+        </Link>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+            className="focus:outline-none"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6 text-sm font-medium items-center">
+          <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
+          <li><NavLink to="/add-task" className={navLinkClass}>Add Task</NavLink></li>
+          <li><NavLink to="/browse-tasks" className={navLinkClass}>Browse Tasks</NavLink></li>
+          <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>
+          <li><NavLink to="/featured-tasks" className={navLinkClass}>Featured Tasks</NavLink></li>
+          <li><NavLink to="/dashboard" className={navLinkClass}>Dashboard</NavLink></li>
+          <li><NavLink to="/about" className={navLinkClass}>About</NavLink></li>
+
+          {user ? (
+            <>
+              <li>
+                <button
+                  onClick={handleLogOutUser}
+                  className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                >
+                  Logout
+                </button>
+              </li>
+              <li className="relative group">
+                <img
+                  src={user.photoURL || 'https://i.pravatar.cc/32'}
+                  alt="User"
+                  className="rounded-full w-8 h-8 object-cover cursor-pointer"
+                />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  {user.displayName || user.email}
+                </div>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink
+                  to="/register"
+                  className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                >
+                  Register
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/login"
+                  className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
+                >
+                  Login
+                </NavLink>
+              </li>
+            </>
+          )}
+
+          <ThemeToggle />
+        </ul>
       </div>
-
-      {/* Mobile Menu Toggle */}
-      <div className="md:hidden flex items-center">
-        <button
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-          className="focus:outline-none"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        <ThemeToggle></ThemeToggle>
-       
-      </div>
-
-      {/* Desktop Menu */}
-      <ul className="hidden md:flex space-x-6 text-sm font-medium items-center ">
-        <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
-        <li><NavLink to="/add-task" className={navLinkClass}>Add Task</NavLink></li>
-        <li><NavLink to="/browse-tasks" className={navLinkClass}>Browse Tasks</NavLink></li>
-        <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>
-        <li><NavLink to="/about" className={navLinkClass}>About</NavLink></li>
-
-        {user ? (
-          <>
-            <li>
-              <button
-                onClick={handleLogOutUser}
-                className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-              >
-                Logout
-              </button>
-            </li>
-            <li className="relative group">
-              <img
-                src={user.photoURL || 'https://i.pravatar.cc/32'}
-                alt="User"
-                className="rounded-full w-8 h-8 object-cover cursor-pointer"
-              />
-              <div className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                {user.displayName || user.email}
-              </div>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <NavLink
-                to="/register"
-                className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-              >
-                Register
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/login"
-                className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-              >
-                Login
-              </NavLink>
-            </li>
-          </>
-        )}
-
-        <ThemeToggle></ThemeToggle>
-      </ul>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-
-        <div className="absolute bg-base-300 top-16 left-0 w-full border-t md:hidden z-50">
-
-
+        <div className="md:hidden border-t bg-base-300">
           <ul className="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
             <li><NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink></li>
             <li><NavLink to="/add-task" onClick={toggleMobileMenu}>Add Task</NavLink></li>
