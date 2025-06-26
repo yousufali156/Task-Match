@@ -1,54 +1,113 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaRocket, FaTools, FaCheckCircle } from "react-icons/fa";
 
-const WhyChooseUs = () => {
-    return (
-        <div className="container mx-auto py-12 px-4 md:px-12 lg:px-20">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-                {/* Why Choose Us */}
-                <div className="flex-1">
-                    <h2 className="text-2xl font-bold mb-6">Why Choose Us</h2>
-                    <ul className="space-y-4">
-                        <li className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">✔</span>
-                            <span>Wide range of skilled freelancers</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">✔</span>
-                            <span>Simple and secure platform</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">✔</span>
-                            <span>Efficient task completion</span>
-                        </li>
-                    </ul>
-                </div>
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
-                {/* How It Works */}
-                <div className="flex-1">
-                    <h2 className="text-2xl font-bold mb-6">How It Works</h2>
-                    <div className="space-y-6">
-                        {[
-                            "Post a task with your requirements",
-                            "Receive bids from freelancers",
-                            "Choose a freelancer and get it done"
-                        ].map((text, index) => (
-                            <div key={index} className="flex items-start">
-                                <div className="flex flex-col items-center mr-4">
-                                    <div className="bg-blue-100 text-blue-800 font-bold rounded-full w-8 h-8 flex items-center justify-center">
-                                        {index + 1}
-                                    </div>
-                                    {index < 2 && <div className="w-px bg-blue-200 h-6"></div>}
-                                </div>
-                                <p className="">{text}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+// "Why Choose Us" section
+const FeatureList = () => {
+  const points = [
+    { id: "wc1", text: "Wide range of skilled freelancers", icon: <FaCheckCircle /> },
+    { id: "wc2", text: "Simple and secure platform", icon: <FaCheckCircle /> },
+    { id: "wc3", text: "Efficient task completion", icon: <FaCheckCircle /> },
+  ];
 
+  return (
+    <div className="flex-1">
+      <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 text-blue-600">
+        <FaRocket /> Why Choose Us
+      </h2>
+      <motion.ul
+        className="space-y-4"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        {points.map((point) => (
+          <motion.li
+            key={point.id}
+            className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-blue-50"
+            variants={itemVariants}
+          >
+            <span className="text-blue-500 mt-1">{point.icon}</span>
+            <span className="text-lg text-gray-700">{point.text}</span>
+          </motion.li>
+        ))}
+      </motion.ul>
+    </div>
+  );
+};
+
+// "How It Works" section
+const StepProcess = () => {
+  const steps = [
+    { id: "hw1", text: "Post a task with your requirements" },
+    { id: "hw2", text: "Receive bids from freelancers" },
+    { id: "hw3", text: "Choose a freelancer and get it done" },
+  ];
+
+  return (
+    <div className="flex-1">
+      <h2 className="text-3xl font-bold flex items-center mb-5 text-purple-600">
+        <FaTools /> How It Works
+      </h2>
+      <motion.div
+        className=""
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        {steps.map((step, index) => (
+          <motion.div key={step.id} className="flex items-start" variants={itemVariants}>
+            <div className="flex flex-col items-center">
+              <div className="bg-purple-100 text-purple-800 font-bold rounded-full w-10 h-10 flex items-center justify-center text-lg z-10">
+                {index + 1}
+              </div>
+              {index < steps.length - 1 && (
+                // Reduced gap from h-16 to h-10 for tighter spacing
+                <div className="w-px bg-purple-200 h-10 -mt-1"></div>
+              )}
             </div>
+            <p className="text-lg text-gray-700 pt-1.5">{step.text}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+// Main component
+const WhyChooseUs = () => {
+  return (
+    <section className="bg-base-200 py-10 px-4 rounded-lg shadow-md container mx-auto mt-1 mb-1">
+      <div className="container mx-auto py-10 px-4 md:px-12 lg:px-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row  justify-between gap-20">
+          <FeatureList />
+          <StepProcess />
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default WhyChooseUs;

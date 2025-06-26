@@ -61,10 +61,10 @@ const AddTask = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-8">
+    <section className="min-h-screen flex items-center justify-center mt-0 px-4 py-8">
       <div className="w-full max-w-xl rounded-xl shadow-lg p-8">
         <title>Add New Task || Task Match</title>
-        <h2 className="text-2xl font-bold text-indigo-700 mb-6">Add a New Task</h2>
+        <h2 className="text-3xl font-extrabold mb-10 text-center text-purple-500 dark:text-purple-400">➕📝 Add a New Task</h2>
 
         {!user ? (
           <p className="text-center font-semibold text-red-600">

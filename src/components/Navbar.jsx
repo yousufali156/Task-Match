@@ -12,16 +12,18 @@ function getRandomShadowColor() {
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const { user, logOutUser } = useContext(FireBaseAuthContext);
   const navigate = useNavigate();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const handleLogOutUser = () => {
     logOutUser()
       .then(() => {
-        navigate('/');
         toast.success('Logout Success');
+        navigate('/login');
       })
       .catch((error) => {
         console.log(error);
@@ -34,7 +36,7 @@ function Navbar() {
 
   return (
     <nav
-      className="bg-base-100 sticky top-0 z-50 shadow-md"
+      className="bg-base-100 fixed top-0 left-0 right-0 z-50 shadow-md"
       style={{ boxShadow: getRandomShadowColor() }}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -44,10 +46,7 @@ function Navbar() {
           <img
             src="/logo.png"
             alt="TaskMatch Logo"
-            className="w-12 h-12 md:w-14 md:h-14
-               transition-all duration-300 ease-in-out
-               brightness-95 dark:brightness-150
-               drop-shadow-md dark:drop-shadow-xl"
+            className="w-12 h-12 md:w-14 md:h-14 transition-all duration-300 ease-in-out brightness-95 dark:brightness-150 drop-shadow-md dark:drop-shadow-xl"
           />
           <span className="text-lg md:text-2xl font-bold">
             <span className="text-blue-500 dark:text-blue-400">Task</span>
@@ -58,14 +57,9 @@ function Navbar() {
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-3">
           <ThemeToggle />
-          <button
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-            className="focus:outline-none"
-          >
+          <button onClick={toggleMobileMenu} aria-label="Toggle menu" className="focus:outline-none">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
@@ -75,58 +69,59 @@ function Navbar() {
           <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
           <li><NavLink to="/add-task" className={navLinkClass}>Add Task</NavLink></li>
           <li><NavLink to="/browse-tasks" className={navLinkClass}>Browse Tasks</NavLink></li>
-
-          {/* Show "My Posted Tasks" only if user is logged in */}
-          {user && (
-            <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>
-          )}
-
+          {user && <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>}
           <li><NavLink to="/featured-tasks" className={navLinkClass}>Featured Tasks</NavLink></li>
           <li><NavLink to="/dashboard" className={navLinkClass}>Dashboard</NavLink></li>
           <li><NavLink to="/about" className={navLinkClass}>About</NavLink></li>
 
           {user ? (
             <>
-              <li>
-                <button
-                  onClick={handleLogOutUser}
-                  className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-                >
-                  Logout
-                </button>
-              </li>
-              <li className="relative group">
+              {/* Profile Avatar with Dropdown */}
+              <li className="relative">
                 <img
                   src={user.photoURL || 'https://i.pravatar.cc/32'}
                   alt="User"
                   className="rounded-full w-8 h-8 object-cover cursor-pointer"
+                  onClick={toggleDropdown}
                 />
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                  {user.displayName || user.email}
-                </div>
+                {dropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-40 border rounded shadow-md z-10">
+                    <button
+                      className="w-full px-4 py-2 bg-base-300 hover:bg-blue-500 text-left text-sm"
+                      onClick={() => {
+                        setDropdownOpen(false);
+                        navigate('/my-profile');
+                      }}
+                    >
+                      My Profile
+                    </button>
+                    <button
+                      className="w-full px-4 py-2 bg-base-300 hover:bg-blue-500 text-left text-sm"
+                      onClick={() => {
+                        setDropdownOpen(false);
+                        handleLogOutUser();
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
               </li>
             </>
           ) : (
             <>
               <li>
-                <NavLink
-                  to="/register"
-                  className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-                >
+                <NavLink to="/register" className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700">
                   Register
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/login"
-                  className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-                >
+                <NavLink to="/login" className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700">
                   Login
                 </NavLink>
               </li>
             </>
           )}
-
           <ThemeToggle />
         </ul>
       </div>
@@ -138,16 +133,14 @@ function Navbar() {
             <li><NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink></li>
             <li><NavLink to="/add-task" onClick={toggleMobileMenu}>Add Task</NavLink></li>
             <li><NavLink to="/browse-tasks" onClick={toggleMobileMenu}>Browse Tasks</NavLink></li>
-
-            {/* Show "My Posted Tasks" only if user is logged in */}
-            {user && (
-              <li><NavLink to="/my-posted-tasks" onClick={toggleMobileMenu}>My Posted Tasks</NavLink></li>
-            )}
-
+            {user && <li><NavLink to="/my-posted-tasks" onClick={toggleMobileMenu}>My Posted Tasks</NavLink></li>}
+            <li><NavLink to="/featured-tasks" onClick={toggleMobileMenu}>Featured Tasks</NavLink></li>
+            <li><NavLink to="/dashboard" onClick={toggleMobileMenu}>Dashboard</NavLink></li>
             <li><NavLink to="/about" onClick={toggleMobileMenu}>About</NavLink></li>
 
             {user ? (
               <>
+                <li><NavLink to="/my-profile" onClick={toggleMobileMenu}>My Profile</NavLink></li>
                 <li>
                   <button
                     onClick={() => {
@@ -159,32 +152,16 @@ function Navbar() {
                     Logout
                   </button>
                 </li>
-                <li className="flex items-center space-x-3">
-                  <img
-                    src={user.photoURL || 'https://i.pravatar.cc/32'}
-                    alt="User"
-                    className="rounded-full w-8 h-8 object-cover"
-                  />
-                  <span>{user.displayName || user.email}</span>
-                </li>
               </>
             ) : (
               <>
                 <li>
-                  <NavLink
-                    to="/register"
-                    onClick={toggleMobileMenu}
-                    className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-                  >
+                  <NavLink to="/register" onClick={toggleMobileMenu} className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700">
                     Register
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/login"
-                    onClick={toggleMobileMenu}
-                    className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700"
-                  >
+                  <NavLink to="/login" onClick={toggleMobileMenu} className="px-3 py-1 text-white rounded bg-blue-600 hover:bg-blue-700">
                     Login
                   </NavLink>
                 </li>

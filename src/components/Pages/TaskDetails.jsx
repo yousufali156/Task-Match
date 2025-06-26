@@ -64,7 +64,7 @@ const TaskDetails = () => {
 
   return (
     <Fade>
-      <div className="max-w-4xl mt-10 mb-12 mx-auto p-8 shadow-xl bg-white dark:bg-base-300 rounded-2xl border border-gray-100 dark:border-gray-700">
+      <div className="max-w-4xl mt-20 mb-12 mx-auto p-8 shadow-xl bg-white dark:bg-base-300 rounded-2xl border border-gray-100 dark:border-gray-700">
         <h2 className="text-3xl font-extrabold mb-6 text-center">
           {task.title}
         </h2>

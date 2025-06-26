@@ -11,35 +11,35 @@ const Slider = () => {
       text: "Small Tasks, Big Opportunities.",
       bg: "bg-gradient-to-br from-purple-600 to-blue-500",
       emoji: "💼🌟",
-      path: "/opportunities"
+      path: ""
     },
     {
       id: 2,
       text: "Connecting Skills with Needs.",
       bg: "bg-gradient-to-br from-orange-500 to-pink-600",
       emoji: "🤝🔧",
-      path: "/skills"
+      path: ""
     },
     {
       id: 3,
       text: "Post. Bid. Get It Done.",
       bg: "bg-gradient-to-br from-green-500 to-lime-400",
       emoji: "📝💲✅",
-      path: "/post-task"
+      path: ""
     },
     {
       id: 4,
       text: "Your Marketplace for Everyday Tasks.",
       bg: "bg-gradient-to-br from-cyan-500 to-blue-600",
       emoji: "🛒📋",
-      path: "/marketplace"
+      path: ""
     },
     {
       id: 5,
       text: "Find Help. Find Work. Fast.",
       bg: "bg-gradient-to-br from-red-500 to-amber-500",
       emoji: "⚡⏱️",
-      path: "/find-work"
+      path: ""
     }
   ];
 

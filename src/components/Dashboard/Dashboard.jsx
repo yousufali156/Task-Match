@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router';
 import ThemeToggle from '../ThemeToggle';
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
+import MyProfile from '../Pages/MyProfile';
 
 const Dashboard = () => {
-  const { user } = useContext(FireBaseAuthContext);
+  const { user, logOutUser } = useContext(FireBaseAuthContext);
   const [stats, setStats] = useState(null);
+  const [showProfile, setShowProfile] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.email) {
@@ -17,7 +21,7 @@ const Dashboard = () => {
             added: data.addedByUser || 0,
             browseable: data.browseable || 0,
             posted: data.postedByUser || 0,
-            featured: 40, // fixed
+            featured: 40,
           });
         })
         .catch((err) => {
@@ -27,10 +31,18 @@ const Dashboard = () => {
     }
   }, [user]);
 
+  const handleLogout = () => {
+    logOutUser()
+      .then(() => navigate('/login'))
+      .catch((err) => console.error('Logout error:', err));
+  };
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
   return (
     <div className="min-h-screen md:flex">
-      {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-base-200 p-4 shadow-md space-y-4" aria-label="Dashboard Sidebar">
+      {/* Sidebar for md+ screens */}
+      <aside className="hidden md:block w-64 bg-base-200 p-4 shadow-md space-y-4" aria-label="Dashboard Sidebar">
         <div className="text-center mb-6">
           <img
             src={user?.photoURL || 'https://i.pravatar.cc/100'}
@@ -40,37 +52,118 @@ const Dashboard = () => {
           <h2 className="text-lg font-semibold mt-2">{user?.displayName || 'User'}</h2>
           <p className="text-sm text-gray-500">{user?.email}</p>
         </div>
-        <nav className="space-y-2" aria-label="Dashboard Navigation">
+
+        <nav className="space-y-2 pt-4" aria-label="Dashboard Navigation">
           <NavLink to="/" className="btn btn-sm w-full">Home</NavLink>
           <NavLink to="/add-task" className="btn btn-sm w-full">Add Task</NavLink>
           <NavLink to="/browse-tasks" className="btn btn-sm w-full">Browse Tasks</NavLink>
           <NavLink to="/my-posted-tasks" className="btn btn-sm w-full">My Posted Tasks</NavLink>
           <NavLink to="/featured-tasks" className="btn btn-sm w-full">Featured Tasks</NavLink>
-          <NavLink to="/dashboard" end className="btn btn-sm w-full">Dashboard</NavLink>
           <NavLink to="/about" className="btn btn-sm w-full">About</NavLink>
-          <NavLink to="/login" className="btn btn-sm w-full">Login</NavLink>
-          <NavLink to="/register" className="btn btn-sm w-full">Register</NavLink>
         </nav>
+
+        {user && (
+          <div className="pt-4 space-y-2">
+            <button
+              onClick={() => setShowProfile(true)}
+              className="btn btn-sm w-full bg-blue-500 text-white hover:bg-blue-600"
+            >
+              My Profile
+            </button>
+            <button
+              onClick={handleLogout}
+              className="btn btn-sm w-full bg-red-500 text-white hover:bg-red-600"
+            >
+              Logout
+            </button>
+          </div>
+        )}
       </aside>
 
+      {/* Mobile Top Bar */}
+      <div className="md:hidden flex justify-between items-center bg-base-200 p-3 shadow-md">
+        {/* Hamburger menu */}
+        <button
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+          className="p-2 rounded-md hover:bg-gray-300 focus:outline-none"
+        >
+          {/* Hamburger icon */}
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
+        </button>
+
+        {/* Right side: ThemeToggle + My Profile */}
+        <div className="flex items-center space-x-3">
+          <ThemeToggle />
+          <button
+            onClick={() => setShowProfile(true)}
+            className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600"
+          >
+            My Profile
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <nav className="md:hidden bg-base-200 p-4 space-y-3 shadow-md">
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/" className="btn btn-sm w-full">Home</NavLink>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/add-task" className="btn btn-sm w-full">Add Task</NavLink>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/browse-tasks" className="btn btn-sm w-full">Browse Tasks</NavLink>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/my-posted-tasks" className="btn btn-sm w-full">My Posted Tasks</NavLink>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/featured-tasks" className="btn btn-sm w-full">Featured Tasks</NavLink>
+          <NavLink onClick={() => setMobileMenuOpen(false)} to="/about" className="btn btn-sm w-full">About</NavLink>
+
+          {user && (
+            <>
+              <button
+                onClick={() => {
+                  setShowProfile(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="btn btn-sm w-full bg-blue-500 text-white hover:bg-blue-600"
+              >
+                My Profile
+              </button>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMobileMenuOpen(false);
+                }}
+                className="btn btn-sm w-full bg-red-500 text-white hover:bg-red-600"
+              >
+                Logout
+              </button>
+            </>
+          )}
+        </nav>
+      )}
+
       {/* Main Content */}
-      <main className="flex-1 p-10 relative">
-        {/* Top Right Header */}
-        <div className="flex justify-end mb-6">
-          <div className="flex items-center space-x-4">
+      <main className="flex-1 p-6 relative">
+
+        <div className="flex justify-between items-center mb-6">
+          {/* Left side: could be empty or other stuff */}
+          <div></div>
+
+          {/* Right side */}
+          <div className="hidden md:flex space-x-3 items-center">
             <ThemeToggle />
-            <div className="flex items-center space-x-2">
-              <img
-                src={user?.photoURL || 'https://i.pravatar.cc/32'}
-                className="w-8 h-8 rounded-full"
-                alt={user?.displayName ? `${user.displayName}'s avatar` : 'User avatar'}
-              />
-              <span className="font-semibold text-sm hidden sm:block">{user?.displayName}</span>
-            </div>
+            <button
+              onClick={() => setShowProfile(true)}
+              className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600"
+            >
+              My Profile
+            </button>
           </div>
         </div>
 
-        {location.pathname === '/dashboard' ? (
+
+        {showProfile ? (
+          <MyProfile onClose={() => setShowProfile(false)} />
+        ) : location.pathname === '/dashboard' ? (
           stats ? (
             <div>
               <h1 className="text-4xl text-center mb-10 mt-10 font-bold text-blue-400">Welcome Back!</h1>

@@ -25,6 +25,7 @@ import PrivateRoute from './Route/PrivateRoute.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import FeaturedTask from './components/FeaturedTask.jsx';
 import FeaturedTaskDetails from './components/Pages/FeaturedTaskDetails.jsx';
+import MyProfile from './components/Pages/MyProfile.jsx';
 
 
 
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: 'reset-password',
         Component: ResetPassword
+      },
+      {
+        path: 'my-profile',
+        Component: MyProfile
       },
       {
         path: 'about',

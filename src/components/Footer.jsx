@@ -1,119 +1,137 @@
 import React from "react";
+import { Link } from "react-router";
 import {
-    FaTiktok,
     FaInstagram,
     FaLinkedin,
     FaFacebook,
-    FaPinterest,
-    FaXTwitter,
+    FaTwitter,
     FaGithub,
-} from "react-icons/fa6";
+} from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="text-sm">
-            {/* Main Section */}
-            <div className="max-w-7xl mx-auto px-4 pt-10 pb-6">
+        <footer className=" text-sm">
+            <div className="max-w-7xl mx-auto px-6 py-12">
+                <div className="flex flex-col md:flex-row justify-between gap-12">
 
-                <title>Footer || Task Match</title>
-
-                {/* Contact & Terms Section */}
-                <div className="mb-5 flex flex-col md:flex-row justify-between gap-8">
-
-
-                    {/* Company description */}
-                    <div className="mb-10 max-w-xl ">
-                        <h2 className="text-2xl font-bold mb-2">Task Match</h2>
-                        <p>
-                            "A freelance marketplace for small tasks where users can post jobs, bid, and connect based on skills, budget, and deadlines."
+                    {/* Logo & Description */}
+                    <div className="flex flex-col items-start max-w-xs">
+                        {/* Logo */}
+                        <Link
+                            to="/"
+                            className="flex items-center gap-2 mb-4 cursor-pointer transition-colors hover:text-indigo-600 dark:hover:text-purple-400"
+                        >
+                            <img
+                                src="/logo.png"
+                                alt="TaskMatch Logo"
+                                className="w-12 h-12 md:w-14 md:h-14 transition-all duration-300 ease-in-out brightness-95 dark:brightness-150 drop-shadow-md dark:drop-shadow-xl"
+                            />
+                            <span className="text-lg md:text-2xl font-bold">
+                                <span className="text-blue-500 dark:text-blue-400">Task</span>
+                                <span className="text-purple-700 dark:text-purple-300">Match</span>
+                            </span>
+                        </Link>
+                        <p className="">
+                            A freelance marketplace for small tasks where users can post jobs, bid, and connect based on skills, budget, and deadlines.
                         </p>
                     </div>
 
-                    {/* Terms and Conditions */}
-                    <div className="text-sm max-w-sm">
-                        <h3 className="font-semibold  mb-2">Terms & Conditions</h3>
-                        <p>
-                            By using Grapes Market, you agree to our service terms including payment
-                            responsibilities, code of conduct, privacy rights, and dispute resolution.
-                            Always review project details and terms before making agreements.
-                        </p>
+                    {/* Links Sections */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 flex-1">
+                        {/* Categories */}
+                        <div>
+                            <h3 className="font-semibold mb-4 text-indigo-500 dark:text-purple-500">Categories</h3>
+                            <ul className="space-y-2">
+                                {[
+                                    { path: "/categories/web-development", label: "Web Development & Tech" },
+                                    { path: "/categories/graphics-design", label: "Graphics & Design" },
+                                    { path: "/categories/digital-marketing", label: "Digital Marketing" },
+                                    { path: "/categories/writing-translation", label: "Writing & Translation" },
+                                    { path: "/categories/video-animation", label: "Video & Animation" },
+                                ].map(({ path, label }) => (
+                                    <li key={path}>
+                                        <Link
+                                            to={path}
+                                            className="hover:underline hover:text-indigo-500 dark:hover:text-purple-400 transition-colors duration-200 cursor-pointer"
+                                        >
+                                            {label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Social Icons with names */}
+                        <div>
+                            <h3 className="font-semibold mb-4 text-indigo-500 dark:text-purple-500">Social Links</h3>
+                            <div className="flex flex-wrap items-center gap-4 text-base font-semibold ">
+                                {[
+                                    { href: "https://www.facebook.com/yousufali156", icon: <FaFacebook className="text-2xl" />, label: "Facebook" },
+                                    { href: "https://www.linkedin.com/in/yousufali156/", icon: <FaLinkedin className="text-2xl" />, label: "LinkedIn" },
+                                    { href: "https://www.instagram.com/mdyousufali001", icon: <FaInstagram className="text-2xl" />, label: "Instagram" },
+                                    { href: "https://twitter.com", icon: <FaTwitter className="text-2xl" />, label: "Twitter" },
+                                    { href: "https://github.com/yousufali156", icon: <FaGithub className="text-2xl" />, label: "GitHub" },
+                                ].map(({ href, icon, label }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 hover:underline hover:text-indigo-500 dark:hover:text-purple-500 transition-colors duration-200 cursor-pointer"
+                                    >
+                                        {icon}
+                                        {label}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Contact */}
+                        <div>
+                            <h3 className="font-semibold mb-4 text-indigo-500 dark:text-purple-500">Contact Us</h3>
+                            <ul className="space-y-3">
+                                <li>
+                                    📧{" "}
+                                    <a
+                                        href="mailto:support@taskmatch.com"
+                                        className="hover:underline hover:text-indigo-600 dark:hover:text-purple-400 transition-colors duration-200 cursor-pointer"
+                                    >
+                                        support@taskmatch.com
+                                    </a>
+                                </li>
+                                <li>
+                                    📞{" "}
+                                    <a
+                                        href="tel:+8800123456789"
+                                        className="hover:underline hover:text-indigo-600 dark:hover:text-purple-400 transition-colors duration-200 cursor-pointer"
+                                    >
+                                        +880 (012) 345-6789
+                                    </a>
+                                </li>
+                                <li>📍 Bogura, Rajshahi, BD 5800</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
-
-                {/* Footer links */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center border-t py-4 px-4">
-                    {/* Categories */}
-                    <div>
-                        <h3 className="font-semibold mb-2">Categories</h3>
-                        <ul className="space-y-1">
-                            <li>Web Development & Tech</li>
-                            <li>Graphics & Design</li>
-                            <li>Digital Marketing</li>
-                            <li>Writing & Translation</li>
-                            <li>Video & Animation</li>
-                        </ul>
-                    </div>
-
-                    {/* For Clients */}
-                    <div>
-                        <h3 className="font-semibold mb-2">For Clients</h3>
-                        <ul className="space-y-1">
-                            <li>How It Works</li>
-                            <li>Success Stories</li>
-                            <li>Trust & Safety</li>
-                            <li>Help Center</li>
-                        </ul>
-                    </div>
-
-                    {/* For Freelancers */}
-                    <div>
-                        <h3 className="font-semibold mb-2">For Freelancers</h3>
-                        <ul className="space-y-1">
-                            <li>Become a Freelancer</li>
-                            <li>Freelancer Tools</li>
-                            <li>Community Hub</li>
-                            <li>Events</li>
-                        </ul>
-                    </div>
-
-
-
-                    {/* Company */}
-                    <div>
-                        <h3 className="font-semibold mb-2">Company</h3>
-                        <ul className="space-y-1">
-                            <li>About Us</li>
-                            <li>Careers</li>
-                            <li>Terms & Conditions</li>
-                            <li>Privacy Policy</li>
-                            <li>Partners</li>
-                        </ul>
-                    </div>
-
-
-                    {/* Contact Info */}
-                    <div>
-                        <h3 className="font-semibold mb-2">Contact Us</h3>
-                        <ul className="space-y-1">
-                            <li>📧 support@taskmatch.com</li>
-                            <li>📞 +880 (012) 345-6789</li>
-                            <li>📍  Bogura, Rajshahi, BD 5800</li>
-                        </ul>
-                    </div>
-                </div>
-
-
             </div>
 
             {/* Bottom Bar */}
             <div className="border-t py-4 px-4">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+
                     {/* Left: Logo and copyright */}
                     <div className="flex items-center gap-2">
-                        <span className="font-bold text-lg">
-                            Task Match
-                        </span>
+                        <Link to="/" className="flex items-center gap-2">
+                            <img
+                                src="/logo.png"
+                                alt="TaskMatch Logo"
+                                className="w-12 h-12 md:w-14 md:h-14 transition-all duration-300 ease-in-out brightness-95 dark:brightness-150 drop-shadow-md dark:drop-shadow-xl"
+                            />
+                            <span className="text-lg md:text-2xl font-bold">
+                                <span className="text-blue-500 dark:text-blue-400">Task</span>
+                                <span className="text-purple-700 dark:text-purple-300">Match</span>
+                            </span>
+                        </Link>
                         <span>© Grapes Market Ltd. {new Date().getFullYear()}</span>
                     </div>
 
@@ -128,37 +146,70 @@ const Footer = () => {
                             />
                             <button
                                 type="submit"
-                                className="px-4 py-2 bg-sky-500 text-white font-semibold rounded-md hover:bg-sky-600"
+                                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-md hover:brightness-110 transition"
                             >
                                 Subscribe
                             </button>
+
                         </form>
                     </div>
 
                     {/* Right: Social Icons */}
                     <div className="flex items-center gap-4 text-xl">
-                        <a href="https://github.com/yousufali156" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://github.com/yousufali156"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            className="hover:text-blue-400 transition"
+                        >
                             <FaGithub />
                         </a>
 
-                        <a href="https://www.linkedin.com/in/yousuf-ali-656744141/" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://www.linkedin.com/in/yousufali156/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                            className="hover:text-blue-400 transition"
+                        >
                             <FaLinkedin />
                         </a>
 
-                        <a href="https://www.facebook.com/yousufali156" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://www.facebook.com/yousufali156"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                            className="hover:text-blue-400 transition"
+                        >
                             <FaFacebook />
                         </a>
 
-                        <a href="https://www.instagram.com/mdyousufali001" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://www.instagram.com/mdyousufali001"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                            className="hover:text-blue-400 transition"
+                        >
                             <FaInstagram />
-                        </a>                      
+                        </a>
 
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            <FaXTwitter />
+                        <a
+                            href="https://twitter.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Twitter"
+                            className="hover:text-blue-400 transition"
+                        >
+                            <FaTwitter />
                         </a>
                     </div>
 
+
                 </div>
+
             </div>
         </footer>
     );
