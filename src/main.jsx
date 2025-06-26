@@ -53,11 +53,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'featured-tasks',
-        element: <FeaturedTask />
+        element: <FeaturedTask></FeaturedTask>,
       },
       {
-        path: 'featured-tasks-details/:id',
-        element: <FeaturedTaskDetails />
+        path: '/featured-tasks-details/:id',
+        element: <PrivateRoute>
+          <FeaturedTaskDetails></FeaturedTaskDetails>
+        </PrivateRoute>,
       },
       {
         path: 'task-details/:id',

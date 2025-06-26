@@ -5,17 +5,24 @@ import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 
 const Dashboard = () => {
   const { user } = useContext(FireBaseAuthContext);
-  const [stats, setStats] = useState(null); // null = loading state
+  const [stats, setStats] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
     if (user?.email) {
       fetch(`https://assignment-10-grapes-server.vercel.app/dashboard-stats?email=${user.email}`)
         .then((res) => res.json())
-        .then((data) => setStats(data))
+        .then((data) => {
+          setStats({
+            added: data.addedByUser || 0,
+            browseable: data.browseable || 0,
+            posted: data.postedByUser || 0,
+            featured: 40, // fixed
+          });
+        })
         .catch((err) => {
           console.error('Failed to load stats:', err);
-          setStats({ added: 0, browseable: 0, posted: 0, featured: 0 }); // fallback
+          setStats({ added: 0, browseable: 0, posted: 0, featured: 40 });
         });
     }
   }, [user]);
@@ -23,16 +30,17 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen md:flex">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-base-200 p-4 shadow-md space-y-4">
+      <aside className="w-full md:w-64 bg-base-200 p-4 shadow-md space-y-4" aria-label="Dashboard Sidebar">
         <div className="text-center mb-6">
           <img
-            src={user?.photoURL || 'https://i.pravatar.cc/100'} className="w-16 h-16 rounded-full mx-auto"
-            alt="User"
+            src={user?.photoURL || 'https://i.pravatar.cc/100'}
+            className="w-16 h-16 rounded-full mx-auto"
+            alt={user?.displayName ? `${user.displayName}'s avatar` : 'User avatar'}
           />
           <h2 className="text-lg font-semibold mt-2">{user?.displayName || 'User'}</h2>
           <p className="text-sm text-gray-500">{user?.email}</p>
         </div>
-        <nav className="space-y-2">
+        <nav className="space-y-2" aria-label="Dashboard Navigation">
           <NavLink to="/" className="btn btn-sm w-full">Home</NavLink>
           <NavLink to="/add-task" className="btn btn-sm w-full">Add Task</NavLink>
           <NavLink to="/browse-tasks" className="btn btn-sm w-full">Browse Tasks</NavLink>
@@ -52,7 +60,11 @@ const Dashboard = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <div className="flex items-center space-x-2">
-              <img src={user?.photoURL} className="w-8 h-8 rounded-full" alt="user avatar" />
+              <img
+                src={user?.photoURL || 'https://i.pravatar.cc/32'}
+                className="w-8 h-8 rounded-full"
+                alt={user?.displayName ? `${user.displayName}'s avatar` : 'User avatar'}
+              />
               <span className="font-semibold text-sm hidden sm:block">{user?.displayName}</span>
             </div>
           </div>

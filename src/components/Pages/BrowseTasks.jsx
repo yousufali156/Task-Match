@@ -26,55 +26,56 @@ const BrowseTasks = () => {
     );
 
   return (
-    <section className="min-h-screen py-10 px-4">
-      <div className="max-w-6xl mx-auto">
-        <title>Browse Tasks || Task Match</title>
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-blue-400">
-          Browse Available Tasks
-        </h2>
+    <div className="container mx-auto py-12 px-4 md:px-12 lg:px-20">
+      <h2 className="text-3xl font-extrabold mb-10 text-center text-blue-700 dark:text-blue-400">
+        🛠️ Browse Available Tasks
+      </h2>
 
-        {tasks.length === 0 ? (
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            No tasks available right now.
-          </p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-            {tasks.map(task => (
-              <div
-                key={task._id}
-                className="bg-base-300 rounded-xl shadow p-5 hover:shadow-lg transition duration-300 flex flex-col justify-between h-[300px]"
-              >
-                <div className="flex-grow flex flex-col gap-2">
-                  <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-400">
-                    {task.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-                    {task.description}
-                  </p>
-
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    <strong>Deadline:</strong> {task.deadline}
-                  </p>
-
-                  <p className="text-indigo-500 dark:text-indigo-300 font-medium">
-                    <strong>Budget:</strong> ${task.budget}
-                  </p>
+      {tasks.length === 0 ? (
+        <p className="text-center text-gray-500 dark:text-gray-400">
+          No tasks available right now.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {tasks.map(task => (
+            <div
+              key={task._id}
+              className="bg-white dark:bg-base-300 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+            >
+              {task.symbolicLogo && (
+                <div className="text-5xl mb-4 flex justify-center">
+                  {task.symbolicLogo}
                 </div>
+              )}
 
-                <div className="pt-3">
-                  <Link to={`/tasks/${task._id}`}>
-                    <button className="btn btn-outline btn-primary w-full">
-                      🔍 See Details
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+              <h3 className="text-xl font-bold text-center text-blue-700 dark:text-blue-400 mb-3">
+                {task.title}
+              </h3>
+
+              {task.deadline && (
+                <p className="text-sm text-center text-gray-600 dark:text-gray-300 mb-1">
+                  📅 <strong>Deadline:</strong> {task.deadline}
+                </p>
+              )}
+
+              <p className="text-sm text-center text-gray-700 dark:text-gray-300 line-clamp-2">
+                {task.description}
+              </p>
+
+              <p className="text-sm text-center text-indigo-600 dark:text-indigo-300 mt-2">
+                💵 <strong>Budget:</strong> ${task.budget}
+              </p>
+
+              <Link to={`/tasks/${task._id}`}>
+                <button className="btn mt-5 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:scale-105 transition-transform">
+                  🔍 See Details
+                </button>
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

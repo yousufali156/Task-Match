@@ -75,7 +75,12 @@ function Navbar() {
           <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
           <li><NavLink to="/add-task" className={navLinkClass}>Add Task</NavLink></li>
           <li><NavLink to="/browse-tasks" className={navLinkClass}>Browse Tasks</NavLink></li>
-          <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>
+
+          {/* Show "My Posted Tasks" only if user is logged in */}
+          {user && (
+            <li><NavLink to="/my-posted-tasks" className={navLinkClass}>My Posted Tasks</NavLink></li>
+          )}
+
           <li><NavLink to="/featured-tasks" className={navLinkClass}>Featured Tasks</NavLink></li>
           <li><NavLink to="/dashboard" className={navLinkClass}>Dashboard</NavLink></li>
           <li><NavLink to="/about" className={navLinkClass}>About</NavLink></li>
@@ -133,7 +138,12 @@ function Navbar() {
             <li><NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink></li>
             <li><NavLink to="/add-task" onClick={toggleMobileMenu}>Add Task</NavLink></li>
             <li><NavLink to="/browse-tasks" onClick={toggleMobileMenu}>Browse Tasks</NavLink></li>
-            <li><NavLink to="/my-posted-tasks" onClick={toggleMobileMenu}>My Posted Tasks</NavLink></li>
+
+            {/* Show "My Posted Tasks" only if user is logged in */}
+            {user && (
+              <li><NavLink to="/my-posted-tasks" onClick={toggleMobileMenu}>My Posted Tasks</NavLink></li>
+            )}
+
             <li><NavLink to="/about" onClick={toggleMobileMenu}>About</NavLink></li>
 
             {user ? (
