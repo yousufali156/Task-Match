@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 import { Link } from 'react-router';
 import { toast } from 'react-toastify';
+import LoadingSpinner from '../LoadingSpinner';
 
 const MyPostedTasks = () => {
   const { user, loading } = useContext(FireBaseAuthContext);
@@ -50,7 +51,7 @@ const MyPostedTasks = () => {
   if (loading || dataLoading) {
     return (
       <div className="flex justify-center items-center h-40">
-        <span className="loading loading-spinner loading-md text-blue-500"></span>
+        <LoadingSpinner></LoadingSpinner>
       </div>
     );
   }
@@ -76,9 +77,9 @@ const MyPostedTasks = () => {
         </p>
       ) : (
         <div className="hidden md:block overflow-x-auto">
-          <table className="min-w-full border border-gray-300 dark:border-gray-700 text-sm md:text-base">
+          <table className="min-w-full border  text-sm md:text-base">
             <thead>
-              <tr className="bg-base-300 text-left text-gray-800 dark:text-gray-100">
+              <tr className="bg-base-300 text-left ">
                 <th className="p-3 border dark:border-gray-700">Title</th>
                 <th className="p-3 border dark:border-gray-700">Status</th>
                 <th className="p-3 border dark:border-gray-700">Deadline</th>
@@ -127,9 +128,9 @@ const MyPostedTasks = () => {
         {tasks.map((task) => (
           <div
             key={task._id}
-            className="bg-base-200 border border-gray-300 dark:border-gray-600 p-4 rounded-lg shadow"
+            className=" border p-4 rounded-lg shadow"
           >
-            <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-300 mb-1">{task.title}</h3>
+            <h3 className="text-lg font-semibold mb-1">{task.title}</h3>
             <p><strong>Status:</strong> {task.status}</p>
             <p><strong>Deadline:</strong> {task.deadline}</p>
             <p><strong>Bids:</strong> {task.bids?.length || 0}</p>

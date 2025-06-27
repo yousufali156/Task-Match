@@ -110,6 +110,7 @@ const About = () => {
             </div>
           </section>
 
+
           <section className="grid md:grid-cols-3 gap-8 mb-16">
             <div>
               <h3 className="font-semibold  mb-2">Categories</h3>

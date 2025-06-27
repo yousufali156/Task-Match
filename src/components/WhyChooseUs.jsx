@@ -32,7 +32,7 @@ const FeatureList = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 text-blue-600">
+      <h2 className="text-3xl font-bold mb-6 flex items-center gap-5 text-blue-600">
         <FaRocket /> Why Choose Us
       </h2>
       <motion.ul
@@ -45,11 +45,11 @@ const FeatureList = () => {
         {points.map((point) => (
           <motion.li
             key={point.id}
-            className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-blue-50"
+            className="flex items-start gap-3 p-2 rounded-lg transition-colors "
             variants={itemVariants}
           >
-            <span className="text-blue-500 mt-1">{point.icon}</span>
-            <span className="text-lg text-gray-700">{point.text}</span>
+            <span className=" mt-1">{point.icon}</span>
+            <span className="text-lg text-gray-500 hover:bg-blue-50 hover:px-6">{point.text}</span>
           </motion.li>
         ))}
       </motion.ul>
@@ -67,8 +67,8 @@ const StepProcess = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-3xl font-bold flex items-center mb-5 text-purple-600">
-        <FaTools /> How It Works
+      <h2 className="text-3xl gap-5 font-bold flex items-center mb-5 text-purple-600">
+        <FaTools />  How It Works
       </h2>
       <motion.div
         className=""
@@ -78,18 +78,23 @@ const StepProcess = () => {
         viewport={{ once: true, amount: 0.5 }}
       >
         {steps.map((step, index) => (
-          <motion.div key={step.id} className="flex items-start" variants={itemVariants}>
+          <motion.div key={step.id} className="flex items-start gap-4" variants={itemVariants}>
+            {/* Step number + line */}
             <div className="flex flex-col items-center">
-              <div className="bg-purple-100 text-purple-800 font-bold rounded-full w-10 h-10 flex items-center justify-center text-lg z-10">
+              <div className="bg-base-content text-base-300 font-semibold rounded-full w-6 h-6 flex items-center justify-center shadow-sm">
                 {index + 1}
               </div>
               {index < steps.length - 1 && (
-                // Reduced gap from h-16 to h-10 for tighter spacing
-                <div className="w-px bg-purple-200 h-10 -mt-1"></div>
+                <div className="w-px h-10 bg-purple-300"></div>
               )}
             </div>
-            <p className="text-lg text-gray-700 pt-1.5">{step.text}</p>
+
+            {/* Step description */}
+            <p className="text-base md:text-lg text-gray-500 hover:bg-blue-50 hover:px-6  dark:text-gray-300 leading-relaxed">
+              {step.text}
+            </p>
           </motion.div>
+
         ))}
       </motion.div>
     </div>

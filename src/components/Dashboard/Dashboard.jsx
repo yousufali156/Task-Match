@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router';
 import ThemeToggle from '../ThemeToggle';
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 import MyProfile from '../Pages/MyProfile';
+import LoadingSpinner from '../LoadingSpinner';
 
 const Dashboard = () => {
   const { user, logOutUser } = useContext(FireBaseAuthContext);
@@ -160,7 +161,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-
         {showProfile ? (
           <MyProfile onClose={() => setShowProfile(false)} />
         ) : location.pathname === '/dashboard' ? (
@@ -173,9 +173,14 @@ const Dashboard = () => {
                 <StatCard title="My Posted Tasks" value={stats.posted} bg="bg-pink-500" />
                 <StatCard title="Featured Tasks" value={stats.featured} bg="bg-red-500" />
               </div>
+              <div className="mt-5 text-center px-10 py-10">
+                <Link to="/" className="btn  w-[50%] bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:scale-95 transition-transform">
+                  Back To Home
+                </Link>
+              </div>
             </div>
           ) : (
-            <div className="text-center text-gray-400 text-xl mt-20">Loading stats...</div>
+            <div className="text-center text-gray-400 text-xl mt-20"><LoadingSpinner /></div>
           )
         ) : (
           <Outlet />

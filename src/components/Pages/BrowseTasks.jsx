@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import LoadingSpinner from '../LoadingSpinner';
 
 const BrowseTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -20,9 +21,7 @@ const BrowseTasks = () => {
 
   if (loading)
     return (
-      <p className="text-center mt-10 text-gray-600 dark:text-gray-300">
-        Loading tasks...
-      </p>
+      <LoadingSpinner></LoadingSpinner>
     );
 
   return (

@@ -10,7 +10,7 @@ const Hero = () => {
       <title>Home || Task Match</title>
       {/* Left text section */}
       <div className="text-center md:text-left max-w-xl">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8">
           Find Freelancers for <br />
           <Typewriter
             words={[" Your Small Tasks"]}
@@ -22,7 +22,7 @@ const Hero = () => {
             delaySpeed={2000}
           />
         </h1>
-        <p className="text-gray-600 mb-6">
+        <p className="text-base-content mb-8">
           <Typewriter
             words={["Connect with skilled freelancers to get your tasks done quickly and efficiently."]}
             loop={0}
@@ -34,8 +34,8 @@ const Hero = () => {
           />
         </p>
         <button
-          onClick={() => navigate('/featured-tasks')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow
+          onClick={() => navigate('/browse-tasks')}
+          className="bg-blue-600 mt-8 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow
           inline-block bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
         >
           Get Started

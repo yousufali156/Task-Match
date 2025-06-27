@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router'; // ✅ Corrected
+import { useParams, Link } from 'react-router';
 import { Player } from '@lottiefiles/react-lottie-player';
 import loadingAnimation from '../../assets/loading.json';
 import { Fade } from 'react-awesome-reveal';

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, Link, useNavigate } from 'react-router'; // ✅ Corrected import
+import { useParams, Link, useNavigate } from 'react-router'; 
 import { Player } from '@lottiefiles/react-lottie-player';
 import loadingAnimation from '../../assets/loading.json';
 import { Fade } from 'react-awesome-reveal';

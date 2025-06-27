@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { FireBaseAuthContext } from '../Provider/FireBaseAuthContext';
 import ThemeToggle from './ThemeToggle';
 
+
 function getRandomShadowColor() {
   const colors = ['#FF6B6B', '#4FD1C5', '#667EEA', '#F6AD55', '#9F7AEA'];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];

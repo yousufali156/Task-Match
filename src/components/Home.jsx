@@ -7,7 +7,6 @@ import Tasks from './Tasks';
 import TechMatchNeeds from './TechMatchNeeds';
 
 
-
 const Home = () => {
 
     return (
@@ -20,7 +19,7 @@ const Home = () => {
             <WhyChooseUs></WhyChooseUs>
             <Tasks></Tasks>
             <ReviewSection></ReviewSection>
-          
+
         </div>
     );
 };

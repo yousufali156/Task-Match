@@ -4,11 +4,13 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { FireBaseAuthContext } from '../../Provider/FireBaseAuthContext';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const categories = ['Design', 'Development', 'Writing', 'Marketing', 'Virtual Assistant', 'Other'];
 
 const AddTask = () => {
   const { user } = useContext(FireBaseAuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -17,7 +19,6 @@ const AddTask = () => {
     formState: { errors, isSubmitting }
   } = useForm();
 
-  // Get today's date in YYYY-MM-DD format for use in the date input
   const today = new Date().toISOString().split('T')[0];
 
   const onSubmit = async (data) => {
@@ -50,6 +51,7 @@ const AddTask = () => {
       });
 
       reset();
+      navigate('/my-posted-tasks');
     } catch (err) {
       console.error('❌ Fetch Error:', err);
       Swal.fire({
@@ -72,7 +74,6 @@ const AddTask = () => {
           </p>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            {/* Title */}
             <div>
               <label className="block mb-1 font-medium">Title</label>
               <input
@@ -83,7 +84,6 @@ const AddTask = () => {
               {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>}
             </div>
 
-            {/* Category */}
             <div>
               <label className="block mb-1 font-medium">Category</label>
               <select
@@ -105,7 +105,6 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Description */}
             <div>
               <label className="block mb-1 font-medium">Description</label>
               <textarea
@@ -117,7 +116,6 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Deadline with min date */}
             <div>
               <label className="block mb-1 font-medium">Deadline</label>
               <input
@@ -133,7 +131,6 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Budget */}
             <div>
               <label className="block mb-1 font-medium">Budget ($)</label>
               <input
@@ -151,7 +148,6 @@ const AddTask = () => {
               )}
             </div>
 
-            {/* Read-only Fields */}
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block mb-1 font-medium">Your Name</label>
@@ -173,7 +169,6 @@ const AddTask = () => {
               </div>
             </div>
 
-            {/* Submit */}
             <div className="text-center mt-9">
               <button
                 type="submit"

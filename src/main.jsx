@@ -26,6 +26,7 @@ import Dashboard from './components/Dashboard/Dashboard.jsx';
 import FeaturedTask from './components/FeaturedTask.jsx';
 import FeaturedTaskDetails from './components/Pages/FeaturedTaskDetails.jsx';
 import MyProfile from './components/Pages/MyProfile.jsx';
+import LoadingSpinner from './components/LoadingSpinner.jsx';
 
 
 
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
         loader: () => fetch('https://assignment-10-grapes-server.vercel.app/tasks'),
         Component: Home
       },
@@ -46,7 +47,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <AddTask></AddTask>
         </PrivateRoute>,
-
       },
       {
         path: 'browse-tasks',
@@ -103,7 +103,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/tasks/:id',
-        hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
         loader: ({ params }) => fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${params.id}`),
         element: <PrivateRoute>
           <BidsDetails></BidsDetails>
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'update-task/:id',
-        hydrateFallbackElement: <p className='text-center mt-4 text-red-500'>loading...</p>,
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
         loader: ({ params }) => fetch(`https://assignment-10-grapes-server.vercel.app/tasks/${params.id}`),
         Component: Update
       },
