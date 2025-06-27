@@ -2,13 +2,13 @@
 
 [Live Site 🌐](https://grapes-market.web.app)
 
-Task Match is a dynamic and modern freelance marketplace where clients can post small tasks, and freelancers can bid to get hired. Whether you need help with design, development, writing, or marketing — Task Match makes it fast and easy to connect with the right talent.
+Task Match is a dynamic and modern freelance marketplace where clients can post small tasks, and freelancers can bid to secure a job. Whether you need help with design, development, writing, or marketing, Task Match makes it fast and easy to connect with the right talent.
 
 ---
 
 ## 📸 Preview
 
-> *(Add a few screenshots or a demo GIF here to visually represent the application.)*
+<img src="https://i.ibb.co/LzX2741k/grapes-market-web-app.jpg" alt="https://grapes-market.web.app/"  style="max-width: 100%;">
 
 ---
 
